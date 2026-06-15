@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>КУПУЙ АВТО — проїжджай автобусом, повертайся машиною</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  .topbar { position:sticky; top:0; z-index:40; background:rgba(26,29,33,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
+  .wm { font-family:var(--font-display); font-weight:800; display:flex; align-items:center; gap:.5rem; font-size:1.15rem; }
+  .wm .a { color:var(--red-500); }
+  .nav-links a { color:var(--gray-300); font-size:var(--t-sm); margin-left:1.5rem; }
+  .nav-links a:hover{ color:#fff; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* HERO */
+  .hero { background:var(--ink-800); color:#fff; position:relative; overflow:hidden; }
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(800px 420px at 78% -5%,rgba(225,27,34,.22),transparent 62%);pointer-events:none;}
+  .hero .wrap{ position:relative; z-index:1; padding-block: clamp(3rem,8vw,6.5rem); }
+  .hero h1{ font-size:var(--t-hero); max-width:18ch; }
+  .hero .accent{ color:var(--red-500); }
+  .hero .deco{ position:absolute; right:0; top:50%; transform:translateY(-50%); z-index:0; opacity:.5; }
+  @media (max-width:900px){ .hero .deco{ display:none; } }
+
+  .statbar { background:var(--ink-900); color:#fff; }
+  .statbar .wrap{ display:grid; grid-template-columns:repeat(4,1fr); }
+  @media (max-width:760px){ .statbar .wrap{ grid-template-columns:repeat(2,1fr); } }
+  .stat{ padding:1.6rem var(--gutter); border-right:1px solid var(--ink-700); }
+  .stat b{ font-family:var(--font-display); font-weight:800; font-size:1.5rem; display:block; }
+  .stat span{ color:var(--gray-500); font-size:var(--t-sm); }
+
+  .steps{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
+  .step{ padding:1.75rem; position:relative; }
+  .step .n{ font-family:var(--font-display); font-weight:800; font-size:2.5rem; color:var(--red-600); line-height:1; }
+  .step .n::after{ content:""; display:block; width:34px; height:5px; margin-top:.6rem; background:var(--red-600); clip-path:polygon(50% 0,100% 100%,0 100%); }
+
+  /* catalog */
+  .cat-grid{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:900px){ .cat-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .cat-grid{ grid-template-columns:1fr; } }
+  .carcard{ overflow:hidden; }
+  .carcard .img{ aspect-ratio:16/11; background:#1A1D21; position:relative; overflow:hidden; }
+  .carcard .img img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s var(--ease,ease); }
+  .carcard:hover .img img{ transform:scale(1.05); }
+  .carcard .img .tag{ position:absolute; top:.7rem; left:.7rem; z-index:2; }
+  .carcard .body{ padding:1.1rem 1.2rem 1.3rem; }
+  .carcard h3{ font-family:var(--font-body); font-weight:800; font-size:1.15rem; }
+  .carcard .pay{ font-family:var(--font-display); font-weight:800; font-size:1.35rem; }
+  .carcard .pay small{ font-family:var(--font-mono); font-weight:500; font-size:.7rem; color:var(--text-muted); }
+  .carcard .bonus{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--teal-500); margin-top:.15rem; }
+  .carcard .specs{ display:flex; gap:.8rem; flex-wrap:wrap; margin:.7rem 0 1rem; }
+  .carcard .specs span{ font-size:var(--t-xs); color:var(--text-muted); }
+
+  .mil{ background:linear-gradient(120deg,var(--ink-900),var(--ink-700)); color:#fff; border-radius:var(--r-lg); padding:clamp(1.75rem,4vw,3rem); position:relative; overflow:hidden; }
+  .mil::after{content:"";position:absolute;right:0;top:0;bottom:0;width:40%;background:repeating-linear-gradient(115deg,rgba(225,27,34,.12) 0 18px,transparent 18px 40px);}
+  .mil .in{ position:relative; z-index:1; max-width:62ch; }
+
+  .why{ grid-template-columns:repeat(4,1fr); }
+  @media (max-width:900px){ .why{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:480px){ .why{ grid-template-columns:1fr; } }
+  .why .ic{ font-size:1.6rem; }
+
+  .cta-band{ background:var(--red-600); color:#fff; text-align:center; }
+  .cta-band h2{ font-size:var(--t-h1); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wm" href="home.html"><svg width="24" height="20" viewBox="0 0 100 80"><polygon points="50,8 90,74 10,74" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg>КУПУЙ <span class="a">АВТО</span></a>
+    <div class="nav-links">
+      <a href="#catalog">Каталог</a>
+      <a href="#how">Як це працює</a>
+      <a href="#mil">Військовим</a>
+      <a href="car.html">Приклад авто</a>
+    </div>
+    <a href="#catalog" class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1.1rem;">Підібрати авто</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="deco" width="420" height="420" viewBox="0 0 100 80" aria-hidden="true">
+    <polygon points="50,8 90,74 10,74" fill="#E11B22" opacity=".18"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow rise">Львів · авто зі США</span>
+    <h1 class="rise" style="margin:1rem 0 1.25rem;">Проїжджай автобусом —<br><span class="accent">повертайся машиною.</span></h1>
+    <p class="rise muted" style="color:var(--gray-300); font-size:var(--t-lead); max-width:54ch;">
+      Обираєте авто — ми готуємо попередній запит на купівлю. Рішення банку-партнера за <b style="color:#fff;">15 хвилин</b>. Одразу показуємо, скільки авто виходить <b style="color:#fff;">на місяць</b>.
+    </p>
+    <div class="flex gap-3 rise" style="margin-top:2rem; flex-wrap:wrap;">
+      <a href="#catalog" class="btn btn-primary btn-lg">Обрати авто →</a>
+      <a href="tel:+380000000000" class="btn btn-ghost btn-lg" style="color:#fff;border-color:#3A424B;">📞 Консультація</a>
+    </div>
+    <div class="flex gap-3 rise" style="margin-top:1.75rem; flex-wrap:wrap;">
+      <span class="chip chip-red">🚗 Авто зі США</span>
+      <span class="chip" style="background:#24282E;color:#CBD2D9;">⏱ заявка за 15 хв</span>
+      <span class="chip" style="background:#24282E;color:#CBD2D9;">🎁 платіж + обслуговування/міс</span>
+      <span class="chip" style="background:#24282E;color:#E8A317;">★ 4.9 · 320+ відгуків</span>
+    </div>
+  </div>
+  <div class="chev-strip"></div>
+</section>
+
+<!-- STAT BAR -->
+<div class="statbar">
+  <div class="wrap">
+    <div class="stat"><b>15 хв</b><span>попередня заявка</span></div>
+    <div class="stat"><b>платіж/міс</b><span>видно одразу</span></div>
+    <div class="stat"><b>обслуговування</b><span>чесний орієнтир</span></div>
+    <div class="stat" style="border-right:0;"><b>під ключ</b><span>авто з договором</span></div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="wrap">
+    <span class="eyebrow">Як це працює</span>
+    <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 2rem;">Від заявки до ключів — 3 кроки</h2>
+    <div class="grid steps">
+      <div class="card step"><div class="n">01</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Попередня заявка</h3><p class="muted">Ім'я, телефон і кілька даних. За 15 хвилин готуємо попередній запит на погодження.</p></div>
+      <div class="card step"><div class="n">02</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Щойно приходить «так» — представник банку-партнера сам зв'язується й озвучує точний платіж.</p></div>
+      <div class="card step"><div class="n">03</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Підписав — і за кермом</h3><p class="muted">Підписуєте в банку — а вас уже чекає авто з готовим договором купівлі-продажу.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section" id="catalog" style="background:var(--gray-100);">
+  <div class="wrap">
+    <div class="flex between items-center" style="flex-wrap:wrap; gap:1rem;">
+      <div>
+        <span class="eyebrow">Каталог</span>
+        <h2 class="chev-rule" style="font-size:var(--t-h1); margin-top:.75rem;">Авто в наявності</h2>
+      </div>
+      <span class="chip badge-mono">🔄 Оновлюється кожні 10 днів</span>
+    </div>
+
+    <div class="grid cat-grid" style="margin-top:2rem;">
+      <!-- card 1: Ford Escape 2020 -->
+      <a class="card carcard" href="car.html">
+        <div class="img"><span class="chip chip-red tag">🔥 Хіт</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin.jpg" alt="Ford Escape 2020 SE" loading="lazy"></div>
+        <div class="body">
+          <div class="flex between items-center"><h3>Ford Escape 2020 SE</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="specs"><span>1.5 EcoBoost</span><span>· 129 000 км</span><span>· Автомат</span><span>· AWD</span></div>
+          <div class="flex between items-center">
+            <div>
+              <div class="pay">≈ 9 900 <small>грн/міс*</small></div>
+              <div class="bonus">🎁 обслуговування ≈ 1 800 грн/міс</div>
+            </div>
+            <span class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1rem;">Деталі →</span>
+          </div>
+        </div>
+      </a>
+      <!-- card 2: Ford Escape 2017 -->
+      <a class="card carcard" href="car.html">
+        <div class="img"><span class="chip tag" style="background:rgba(20,23,26,.7);color:#fff;">📍 у наявності</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2017-1-5at-awd-sel-a67683-vin.jpg" alt="Ford Escape 2017 SEL" loading="lazy"></div>
+        <div class="body">
+          <div class="flex between items-center"><h3>Ford Escape 2017 SEL</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="specs"><span>1.5</span><span>· 116 000 км</span><span>· Автомат</span><span>· AWD</span></div>
+          <div class="flex between items-center">
+            <div>
+              <div class="pay">≈ 9 700 <small>грн/міс*</small></div>
+              <div class="bonus">🎁 обслуговування ≈ 1 800 грн/міс</div>
+            </div>
+            <span class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1rem;">Деталі →</span>
+          </div>
+        </div>
+      </a>
+      <!-- card 3: Jeep Renegade 2017 -->
+      <a class="card carcard" href="car.html">
+        <div class="img"><span class="chip tag" style="background:rgba(20,23,26,.7);color:#fff;">⛽ ГБО · економно</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/jeep-renegade-2017-2-4-fwd-at-sport-f29689-vin.jpg" alt="Jeep Renegade 2017 Sport" loading="lazy"></div>
+        <div class="body">
+          <div class="flex between items-center"><h3>Jeep Renegade 2017</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="specs"><span>2.4</span><span>· 173 000 км</span><span>· Автомат</span><span>· ГБО</span></div>
+          <div class="flex between items-center">
+            <div>
+              <div class="pay">≈ 11 500 <small>грн/міс*</small></div>
+              <div class="bonus">🎁 обслуговування ≈ 1 500 грн/міс</div>
+            </div>
+            <span class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1rem;">Деталі →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="mono" style="font-size:var(--t-xs); color:var(--text-muted); margin-top:1rem;">* Орієнтовний щомісячний платіж за попереднім розрахунком. Точну суму озвучує банк-партнер після заявки.</p>
+    <div class="center" style="margin-top:1.5rem;">
+      <a href="#" class="btn btn-dark btn-lg">Дивитися всі авто →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MILITARY -->
+<section class="section" id="mil">
+  <div class="wrap">
+    <div class="mil">
+      <div class="in">
+        <span class="chip chip-red" style="margin-bottom:1rem;">🎖 Для військових</span>
+        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Окрема увага ЗСУ та ветеранам</h2>
+        <p style="color:var(--gray-300); margin-bottom:1.5rem;">Допоможемо з підбором авто та поданням попередньої заявки, підкажемо доступні банківські програми для військових — чесно, без міфів про «нульове розмитнення». Заявку можна оформити й на члена родини.</p>
+        <a href="#catalog" class="btn btn-primary btn-lg">Підібрати авто →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" style="background:var(--ink-800); color:#fff;">
+  <div class="wrap">
+    <span class="eyebrow">Чому ми</span>
+    <h2 style="font-size:var(--t-h1); color:#fff; margin:.75rem 0 2rem;">Прозоро. Швидко. Для своїх.</h2>
+    <div class="grid why">
+      <div><div class="ic">🎁</div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Платіж + обслуговування</h3><p class="muted" style="color:var(--gray-400)">Показуємо обидві суми на місяць наперед — без сюрпризів.</p></div>
+      <div><div class="ic">⏱</div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">За 15 хвилин</h3><p class="muted" style="color:var(--gray-400)">Попередня заявка — швидко й без зайвої бюрократії.</p></div>
+      <div><div class="ic">🔍</div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">VIN та історія</h3><p class="muted" style="color:var(--gray-400)">Перевірена історія авто зі США — відкрито.</p></div>
+      <div><div class="ic">📍</div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Салон у Львові</h3><p class="muted" style="color:var(--gray-400)">Приходьте подивитись авто наживо.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section cta-band">
+  <div class="wrap">
+    <h2 style="margin-bottom:.75rem;">Готові пересісти на своє авто?</h2>
+    <p style="max-width:48ch; margin:0 auto 1.75rem; opacity:.92;">Лишіть заявку — за 15 хвилин підберемо авто й покажемо, скільки воно виходить на місяць.</p>
+    <div class="flex gap-3" style="justify-content:center; flex-wrap:wrap;">
+      <a href="#catalog" class="btn btn-lg" style="background:#fff; color:var(--red-700);">Обрати авто</a>
+      <a href="tel:+380000000000" class="btn btn-lg btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.5);">📞 Подзвонити</a>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--ink-900); color:var(--gray-400); padding:3rem 0;">
+  <div class="wrap">
+    <div class="flex between" style="flex-wrap:wrap; gap:2rem;">
+      <div style="max-width:36ch;">
+        <a class="wm" href="home.html" style="color:#fff;"><svg width="24" height="20" viewBox="0 0 100 80"><polygon points="50,8 90,74 10,74" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg>КУПУЙ <span class="a">АВТО</span></a>
+        <p style="margin-top:1rem; font-size:var(--t-sm);">Авто зі США під ключ. Підбір і попередня заявка за 15 хвилин. Львів · Хмельницький · Київ.</p>
+      </div>
+      <div class="mono" style="font-size:var(--t-xs); line-height:2;">
+        <div style="color:#fff; margin-bottom:.5rem; letter-spacing:.1em;">КОНТАКТИ</div>
+        +38 (0XX) XXX-XX-XX<br>Львів, вул. ___<br>щодня 9:00–20:00
+      </div>
+    </div>
+    <div class="chev-strip" style="margin:2rem 0 1.5rem; opacity:.5;"></div>
+    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Допомагаємо підібрати авто та подати попередній запит на купівлю. Остаточні умови визначає банк-партнер. Не є публічною офертою.</p>
+  </div>
+</footer>
+
+</body>
+</html>

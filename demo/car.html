@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ford Escape 2020 SE — КУПУЙ АВТО</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  .topbar { position:sticky; top:0; z-index:40; background:rgba(26,29,33,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
+  .wm { font-family:var(--font-display); font-weight:800; display:flex; align-items:center; gap:.5rem; font-size:1.1rem; }
+  .wm .a { color:var(--red-500); }
+  .topbar .phone { font-family:var(--font-mono); font-weight:500; color:#fff; font-size:var(--t-sm); white-space:nowrap; }
+  @media (max-width:480px){ .topbar .phone{ font-size:11px; } .topbar .wm{ font-size:.95rem; } }
+
+  .hero { background:var(--ink-800); color:#fff; padding-block: clamp(1.5rem,4vw,3rem) clamp(2.5rem,6vw,4rem); position:relative; overflow:hidden; }
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 90% 0,rgba(225,27,34,.18),transparent 60%);pointer-events:none;}
+  .hero .grid-h { position:relative; z-index:1; display:grid; grid-template-columns: 1.5fr .9fr; gap:2.5rem; align-items:start; }
+  @media (max-width:900px){ .hero .grid-h { grid-template-columns:1fr; } }
+
+  .gallery { display:grid; grid-template-columns: 3fr 1fr; gap:.6rem; }
+  .ph { background:#1A1D21; border-radius:var(--r-md); position:relative; overflow:hidden; }
+  .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .ph-main { aspect-ratio: 16/10; }
+  .ph-thumbs { display:flex; flex-direction:column; gap:.6rem; }
+  .ph-thumbs .ph { aspect-ratio: 4/3; }
+  .ph-badge { position:absolute; top:.7rem; left:.7rem; z-index:2; }
+  .ph-360 { position:absolute; bottom:.7rem; right:.7rem; z-index:2; background:rgba(20,23,26,.7); color:#fff; border:1px solid var(--ink-500); }
+  .ph .more{ position:absolute; inset:0; background:rgba(20,23,26,.55); display:grid; place-items:center; color:#fff; font-family:var(--font-mono); font-size:var(--t-sm); }
+
+  .buybox { background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--r-lg); padding:1.5rem; position:sticky; top:80px; }
+  .pay-label{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--gray-400); text-transform:uppercase; letter-spacing:.12em; }
+  .price { font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,4vw,2.6rem); line-height:1; margin-top:.35rem; }
+  .price small { font-family:var(--font-mono); font-weight:500; font-size:.85rem; color:var(--gray-400); }
+  .bonus-row { display:flex; gap:.6rem; align-items:center; margin-top:1rem; padding:.85rem 1rem; background:var(--ink-800); border-radius:var(--r-sm); border-left:4px solid var(--teal-500); }
+
+  .specstrip { background:var(--ink-900); }
+  .specstrip .wrap { display:grid; grid-template-columns:repeat(5,1fr); gap:0; }
+  @media (max-width:760px){ .specstrip .wrap{ grid-template-columns:repeat(2,1fr);} }
+  .spec-i { padding:1.4rem var(--gutter); border-right:1px solid var(--ink-700); color:#fff; }
+  .spec-i .k { font-family:var(--font-mono); font-size:var(--t-xs); color:var(--gray-500); text-transform:uppercase; letter-spacing:.1em; }
+  .spec-i .v { font-family:var(--font-display); font-weight:700; font-size:1.2rem; margin-top:.35rem; }
+
+  h2.sh { font-size:var(--t-h2); margin-bottom:.4rem; }
+  .lead-sub { color:var(--text-muted); margin-bottom:2rem; }
+
+  .trust-grid { grid-template-columns:repeat(3,1fr); }
+  @media (max-width:760px){ .trust-grid{ grid-template-columns:1fr;} }
+  .tcard { padding:1.5rem; }
+  .tcard .ic { width:42px;height:42px;border-radius:var(--r-sm);display:grid;place-items:center;background:var(--red-050);color:var(--red-600);font-size:1.3rem;margin-bottom:.9rem;}
+
+  .hist { border:1px solid var(--hairline); border-radius:var(--r-md); overflow:hidden; }
+  .hist .row { display:flex; justify-content:space-between; gap:1rem; padding:.9rem 1.1rem; border-bottom:1px solid var(--hairline); align-items:center; }
+  .hist .row:last-child{ border-bottom:0; }
+  .hist .row .ok { color:var(--teal-500); font-weight:700; }
+
+  .spectable { width:100%; border-collapse:collapse; }
+  .spectable td { padding:.8rem 0; border-bottom:1px solid var(--hairline); font-size:var(--t-body); }
+  .spectable td:first-child { color:var(--text-muted); width:45%; }
+  .spectable td:last-child { font-weight:600; text-align:right; }
+
+  /* step flow */
+  .flow{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:760px){ .flow{ grid-template-columns:1fr; } }
+  .flow .step{ padding:1.5rem; }
+  .flow .n{ font-family:var(--font-display); font-weight:800; font-size:2.2rem; color:var(--red-600); line-height:1; }
+
+  .formwrap { background:var(--ink-800); color:#fff; border-radius:var(--r-lg); overflow:hidden; }
+  .formwrap .inner { padding: clamp(1.5rem,4vw,2.5rem); }
+  .progress { display:flex; gap:.4rem; margin-bottom:1.5rem; }
+  .progress span { height:5px; flex:1; background:var(--ink-600); border-radius:2px; }
+  .progress span.on { background:var(--red-600); }
+  .field { width:100%; padding:1rem 1.1rem; border-radius:var(--r-sm); border:1.5px solid var(--ink-500); background:var(--ink-700); color:#fff; font:inherit; }
+  .field::placeholder{ color:var(--gray-500); }
+  .field:focus{ outline:none; border-color:var(--red-500); }
+  .opts { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.6rem; }
+  @media (max-width:620px){ .opts{ grid-template-columns:1fr;} }
+  .opt { padding:.9rem; border:1.5px solid var(--ink-500); border-radius:var(--r-sm); text-align:center; font-weight:600; transition:.2s; }
+  .opt:hover{ border-color:var(--red-500); background:var(--ink-700); }
+  .opt.sel{ border-color:var(--red-600); background:rgba(225,27,34,.12); }
+
+  .disclaimer { font-size:var(--t-xs); line-height:1.6; color:var(--gray-500); background:var(--gray-100); border-radius:var(--r-sm); padding:1rem 1.1rem; }
+
+  .rev { padding:1.4rem; }
+  .rev .stars{ color:var(--amber-500); letter-spacing:.1em; }
+  .rev .who{ display:flex; align-items:center; gap:.7rem; margin-top:1rem; }
+  .rev .av{ width:38px;height:38px;border-radius:50%;background:var(--ink-700);color:#fff;display:grid;place-items:center;font-weight:700;}
+
+  .stickybar { position:fixed; left:0; right:0; bottom:0; z-index:50; background:#fff; border-top:1px solid var(--hairline); box-shadow:0 -8px 30px rgba(20,23,26,.12); padding:.7rem var(--gutter); display:flex; gap:.6rem; }
+  .stickybar .btn{ flex:1; }
+  body{ padding-bottom:84px; }
+  @media (min-width:900px){ .stickybar{ display:none; } body{ padding-bottom:0; } }
+
+  .twocol { display:grid; grid-template-columns: 1.3fr .9fr; gap:2.5rem; align-items:start; }
+  @media (max-width:900px){ .twocol{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <a class="wm" href="home.html"><svg width="22" height="18" viewBox="0 0 100 80"><polygon points="50,8 90,74 10,74" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg>КУПУЙ <span class="a">АВТО</span></a>
+    <a class="phone" href="tel:+380000000000">📞 +38 (0XX) XXX-XX-XX</a>
+  </div>
+</div>
+
+<!-- ===== HERO: фото + платіж/міс + бонус + CTA + клік-ту-кол ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="flex gap-2" style="margin-bottom:1rem; flex-wrap:wrap;">
+      <span class="chip chip-red">🚗 Авто зі США</span>
+      <span class="chip chip-teal">✓ Історія перевірена</span>
+      <span class="chip" style="background:#24282E;color:#CBD2D9;">📍 Львів, у наявності</span>
+      <span class="chip" style="background:#24282E;color:#E8A317;">★ 4.9 · 320+ відгуків</span>
+    </div>
+    <div class="grid-h">
+      <!-- gallery -->
+      <div>
+        <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:.4rem;">Ford Escape <span style="color:var(--red-500)">2020</span> SE</h1>
+        <p class="mono" style="color:var(--gray-400); font-size:var(--t-sm); margin-bottom:1rem;">1.5 EcoBoost · 129 000 км · Автомат · повний привід AWD</p>
+        <div class="gallery">
+          <div class="ph ph-main">
+            <span class="chip badge-mono ph-badge" style="background:rgba(20,23,26,.7);color:#fff;">1 / 18</span>
+            <button class="btn ph-360">↻ 360° огляд</button>
+            <img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin.jpg" alt="Ford Escape 2020 SE — головне фото" loading="eager">
+          </div>
+          <div class="ph-thumbs">
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-1.jpg" alt="перед" loading="lazy"></div>
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-2.jpg" alt="салон" loading="lazy"></div>
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-3.jpg" alt="ще фото" loading="lazy"><div class="more">+15 фото</div></div>
+          </div>
+        </div>
+        <p class="mono" style="color:var(--gray-500); font-size:var(--t-xs); margin-top:.8rem;">18 реальних HD-фото · walkaround-відео · 360° спін</p>
+      </div>
+
+      <!-- buybox: БЕЗ фінальної ціни — акцент на платіж/міс + бонус -->
+      <aside class="buybox">
+        <div class="pay-label">Орієнтовний платіж</div>
+        <div class="price">≈ 9 900 <small>грн / місяць*</small></div>
+        <div class="bonus-row">
+          <span style="flex:none;font-size:1.2rem;">🎁</span>
+          <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Бонус від нас: обслуговування ≈ <b style="color:#fff;">1 800 грн/міс</b> — щоб ви бачили реальні витрати наперед.</span>
+        </div>
+        <div class="stack" style="margin-top:1.25rem;">
+          <a href="#form" class="btn btn-primary btn-lg btn-block">Дізнатись мій платіж →</a>
+          <a href="tel:+380000000000" class="btn btn-dark btn-block" style="background:#fff;color:#14171A;">📞 Подзвонити зараз</a>
+        </div>
+        <div class="flex gap-3" style="margin-top:1rem; justify-content:center; flex-wrap:wrap;">
+          <span class="mono" style="font-size:var(--t-xs);color:var(--gray-400);">⏱ попередня заявка за 15 хв</span>
+        </div>
+        <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--ink-600);">
+          <span style="font-size:var(--t-xs); color:var(--gray-400); line-height:1.5; display:block;">* Орієнтовний щомісячний платіж за попереднім розрахунком. Точну суму та умови озвучує банк-партнер після попередньої заявки.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== КОРОТКІ СПЕЦИФІКАЦІЇ ===== -->
+<div class="specstrip">
+  <div class="wrap">
+    <div class="spec-i"><div class="k">Двигун</div><div class="v">1.5 EcoBoost</div></div>
+    <div class="spec-i"><div class="k">Пробіг</div><div class="v">129 000 км</div></div>
+    <div class="spec-i"><div class="k">КПП</div><div class="v">Автомат</div></div>
+    <div class="spec-i"><div class="k">Привід</div><div class="v">Повний AWD</div></div>
+    <div class="spec-i" style="border-right:0;"><div class="k">Рік</div><div class="v">2020</div></div>
+  </div>
+</div>
+
+<!-- ===== ДОВІРА: VIN + історія + чек-ліст ===== -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Прозорість</span>
+    <h2 class="sh chev-rule">VIN, історія та технічний стан</h2>
+    <p class="lead-sub">Показуємо все відкрито — прозорість піднімає довіру (і конверсію на +40% для вживаних).</p>
+
+    <div class="twocol">
+      <div>
+        <div class="hist">
+          <div class="row"><span class="muted">VIN-код</span><span class="mono" style="font-weight:600;">1FMCU9G69LUA89186</span></div>
+          <div class="row"><span class="muted">Історія (США)</span><span class="ok">✓ Перевірена · без серйозних ДТП</span></div>
+          <div class="row"><span class="muted">Перевірка пробігу</span><span class="ok">✓ Підтверджено</span></div>
+          <div class="row"><span class="muted">Юридична чистота</span><span class="ok">✓ Не в заставі/розшуку</span></div>
+          <div class="row"><span class="muted">Розмитнення</span><span class="ok">✓ Включено</span></div>
+        </div>
+        <a href="#" class="btn btn-ghost" style="margin-top:1rem;">↓ Завантажити повний звіт історії (PDF)</a>
+      </div>
+      <div class="grid trust-grid" style="grid-template-columns:1fr; gap:1rem;">
+        <div class="card tcard"><div class="ic">🔧</div><b>Передпродажна інспекція</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">142 пункти перевірки. Власний чек-ліст стану — додатковий шар довіри понад історію авто.</p></div>
+        <div class="card tcard"><div class="ic">🎁</div><b>Бонус: вартість обслуговування</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">Чесний орієнтир для цього авто: ТО + витратники ≈ <b>1 800 грн/міс</b>. Без сюрпризів після покупки.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ЯК ОТРИМАТИ ЦЕ АВТО (реальний флоу: заявка → банк → авто) ===== -->
+<section class="section" style="background:var(--gray-100);">
+  <div class="wrap">
+    <span class="eyebrow">Як це працює</span>
+    <h2 class="sh chev-rule">Від заявки — до ключів</h2>
+    <p class="lead-sub">Без калькуляторів і зайвих документів. Усе просто:</p>
+    <div class="grid flow" style="margin-bottom:1.5rem;">
+      <div class="card step"><div class="n">01</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Попередня заявка — 15 хв</h3><p class="muted">Лишаєте ім'я, телефон і кілька даних. Готуємо попередній запит на погодження.</p></div>
+      <div class="card step"><div class="n">02</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Погодження від банку-партнера</h3><p class="muted">Щойно приходить «так» — представник банку сам зв'язується з вами й озвучує точний платіж.</p></div>
+      <div class="card step"><div class="n">03</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Підписання — і ви за кермом</h3><p class="muted">Підписуєте документи в банку — а вас уже чекає авто з готовим договором купівлі-продажу.</p></div>
+    </div>
+    <div class="flex between items-center" style="flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+      <div class="flex gap-2" style="flex-wrap:wrap;">
+        <span class="chip chip-teal">🛡 Юридична чистота</span>
+        <span class="chip chip-teal">🚫 Без прихованих платежів</span>
+        <span class="chip chip-teal">🤝 Авто готове до виїзду</span>
+      </div>
+      <a href="#form" class="btn btn-primary">Проїжджай автобусом — повертайся машиною →</a>
+    </div>
+    <div class="disclaimer">
+      «Купуй Авто» допомагає підібрати авто та подати попередній запит на його придбання. Остаточні умови та щомісячний платіж визначає банк-партнер за результатом розгляду. Наведені суми орієнтовні й не є публічною офертою.
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОСНОВНА ФОРМА ===== -->
+<section class="section" id="form">
+  <div class="wrap">
+    <div class="twocol">
+      <div class="formwrap">
+        <div class="inner">
+          <div class="progress"><span class="on"></span><span class="on"></span><span></span></div>
+          <span class="eyebrow" style="color:var(--red-500)">Крок 2 з 3 · 20 секунд</span>
+          <h3 style="font-family:var(--font-display); font-size:var(--t-h3); color:#fff; margin:.6rem 0 1.25rem;">Що для вас важливо?</h3>
+          <div class="opts" style="margin-bottom:1.25rem;">
+            <div class="opt sel">🚗 Це авто</div>
+            <div class="opt">🎯 Підбір під суму</div>
+            <div class="opt">📍 Візит у салон</div>
+          </div>
+          <div class="stack">
+            <input class="field" placeholder="Ваше ім'я">
+            <input class="field" placeholder="Телефон" inputmode="tel">
+            <button class="btn btn-primary btn-lg btn-block">Дізнатись мій платіж →</button>
+          </div>
+          <div class="flex gap-2 items-center" style="justify-content:center; margin-top:.9rem;">
+            <span style="color:var(--amber-500); letter-spacing:.08em;">★★★★★</span>
+            <span class="mono" style="font-size:var(--t-xs); color:var(--gray-400);">4.9 — 320+ клієнтів уже за кермом</span>
+          </div>
+          <p class="mono" style="font-size:var(--t-xs); color:var(--gray-500); margin-top:1rem; text-align:center;">
+            🔒 Передзвонимо за 15 хв. Натискаючи, ви погоджуєтесь з обробкою даних.
+          </p>
+          <p class="mono" style="font-size:var(--t-xs); color:var(--teal-500); margin-top:.6rem; text-align:center;">
+            📴 Немає інтернету? Заявка збережеться й надішлеться автоматично.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-display); font-size:var(--t-h3); margin-bottom:1rem;">3 способи почати</h3>
+        <div class="stack">
+          <div class="card tcard" style="padding:1.1rem;"><b>🔴 Швидка заявка</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">Ім'я + телефон. Передзвонимо за 15 хв.</p></div>
+          <div class="card tcard" style="padding:1.1rem;"><b>💬 Консультація / підбір</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">«Маю суму Х на місяць — підберіть авто».</p></div>
+          <div class="card tcard" style="padding:1.1rem;"><b>📍 Візит у салон</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">Заброньте час — авто чекатиме на вас.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST: відгуки ===== -->
+<section class="section" style="background:var(--ink-800); color:#fff;">
+  <div class="wrap">
+    <span class="eyebrow">Нам довіряють</span>
+    <h2 class="sh" style="color:#fff;">Реальні відгуки клієнтів</h2>
+    <p class="lead-sub" style="color:var(--gray-400)">Відгуки під CTA піднімають конверсію на +68%.</p>
+    <div class="grid trust-grid">
+      <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:.6rem;">«Лишив заявку ввечері — зранку вже передзвонили з готовим рішенням. Я ФОП, у банку напряму відмовляли.»</p>
+        <div class="who"><span class="av">О</span><div><b>Олег М.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Ford Escape</div></div></div>
+      </div>
+      <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:.6rem;">«Сподобалось, що одразу показали реальні витрати на місяць — і платіж, і обслуговування. Жодних сюрпризів.»</p>
+        <div class="who"><span class="av">Д</span><div><b>Дмитро К.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">ЗСУ · Jeep Renegade</div></div></div>
+      </div>
+      <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:.6rem;">«Приїхав у салон у Львові — авто саме таке, як на фото. Забрав з готовим договором того ж дня.»</p>
+        <div class="who"><span class="av">І</span><div><b>Ірина В.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Ford Escape</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== РОЗШИРЕНИЙ ОПИС + ПОВНІ ХАРАКТЕРИСТИКИ ===== -->
+<section class="section">
+  <div class="wrap twocol">
+    <div>
+      <span class="eyebrow">Опис</span>
+      <h2 class="sh chev-rule">Про це авто</h2>
+      <div class="stack" style="margin-top:1rem; color:var(--text);">
+        <p>Ford Escape 2020 SE — сучасний кросовер із турбодвигуном 1.5 EcoBoost та повним приводом AWD. Привезений зі США, з підтвердженою історією та включеним розмитненням.</p>
+        <p>Багата комплектація: Apple CarPlay / Android Auto, панорамний дах, камера 360°, адаптивний круїз-контроль, асистент смуги руху, контроль сліпих зон, підігрів керма, електропривід дверей багажника, бездротова зарядка, цифрова панель приладів.</p>
+        <p>Одне з авто, доступних просто зараз. Каталог оновлюється кожні 10 днів — якщо вагаєтесь, краще лишити заявку сьогодні.</p>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Розширені характеристики</span>
+      <table class="spectable" style="margin-top:1rem;">
+        <tr><td>Кузов</td><td>Кросовер</td></tr>
+        <tr><td>Двигун</td><td>1.5 EcoBoost · турбо</td></tr>
+        <tr><td>Паливо</td><td>Бензин</td></tr>
+        <tr><td>КПП</td><td>Автомат</td></tr>
+        <tr><td>Привід</td><td>Повний AWD</td></tr>
+        <tr><td>Пробіг</td><td>129 000 км</td></tr>
+        <tr><td>Комплектація</td><td>SE</td></tr>
+        <tr><td>Колір</td><td>Червоний</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STICKY BAR (мобайл) ===== -->
+<div class="stickybar">
+  <a href="tel:+380000000000" class="btn btn-dark" style="flex:.8;">📞 Дзвінок</a>
+  <a href="#form" class="btn btn-primary">Дізнатись платіж</a>
+</div>
+
+<footer style="background:var(--ink-900); color:var(--gray-400); padding:2.5rem 0;">
+  <div class="wrap flex between items-center" style="flex-wrap:wrap; gap:1rem;">
+    <a class="wm" href="home.html" style="color:#fff;"><svg width="22" height="18" viewBox="0 0 100 80"><polygon points="50,8 90,74 10,74" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg>КУПУЙ <span class="a">АВТО</span></a>
+    <span class="mono" style="font-size:var(--t-xs);">© 2026 · Львів · авто зі США під ключ</span>
+  </div>
+</footer>
+
+</body>
+</html>
