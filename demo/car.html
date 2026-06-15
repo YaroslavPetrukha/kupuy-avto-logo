@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ford Escape 2020 SE — КУПУЙ АВТО</title>
+<title>Audi A5 2012 2.0 TFSI quattro — КУПУЙ АВТО</title>
 <link rel="stylesheet" href="assets/tokens.css">
 <style>
   .topbar { position:sticky; top:0; z-index:40; background:rgba(26,29,33,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
@@ -93,6 +93,18 @@
 
   .twocol { display:grid; grid-template-columns: 1.3fr .9fr; gap:2.5rem; align-items:start; }
   @media (max-width:900px){ .twocol{ grid-template-columns:1fr; } }
+
+  /* ---- upkeep / cost-of-ownership block (closes "авто це дорого") ---- */
+  .upkeep{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+  @media (max-width:760px){ .upkeep{ grid-template-columns:repeat(2,1fr);} }
+  .ucard{ background:#fff; border:1px solid var(--hairline); border-radius:var(--r-md); padding:1.2rem; }
+  .ucard .ic{ font-size:1.4rem; }
+  .ucard .amt{ font-family:var(--font-display); font-weight:800; font-size:1.35rem; margin-top:.5rem; }
+  .ucard .lbl{ color:var(--text-muted); font-size:var(--t-sm); margin-top:.15rem; }
+  .usum{ display:flex; flex-wrap:wrap; align-items:center; gap:1.2rem; justify-content:space-between;
+         background:var(--ink-800); color:#fff; border-radius:var(--r-lg); padding:1.5rem 1.75rem; margin-top:1.25rem; }
+  .usum .big{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.1; margin-top:.2rem; }
+  .usum .big span{ color:var(--red-500); }
 </style>
 </head>
 <body>
@@ -117,30 +129,30 @@
     <div class="grid-h">
       <!-- gallery -->
       <div>
-        <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:.4rem;">Ford Escape <span style="color:var(--red-500)">2020</span> SE</h1>
-        <p class="mono" style="color:var(--gray-400); font-size:var(--t-sm); margin-bottom:1rem;">1.5 EcoBoost · 129 000 км · Автомат · повний привід AWD</p>
+        <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:.4rem;">Audi A5 <span style="color:var(--red-500)">2012</span> quattro</h1>
+        <p class="mono" style="color:var(--gray-400); font-size:var(--t-sm); margin-bottom:1rem;">2.0 TFSI · 202 000 км · Автомат S tronic · повний привід quattro</p>
         <div class="gallery">
           <div class="ph ph-main">
-            <span class="chip badge-mono ph-badge" style="background:rgba(20,23,26,.7);color:#fff;">1 / 18</span>
+            <span class="chip badge-mono ph-badge" style="background:rgba(20,23,26,.7);color:#fff;">1 / 20</span>
             <button class="btn ph-360">↻ 360° огляд</button>
-            <img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin.jpg" alt="Ford Escape 2020 SE — головне фото" loading="eager">
+            <img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-1.jpg" alt="Audi A5 2012 quattro — головне фото" loading="eager">
           </div>
           <div class="ph-thumbs">
-            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-1.jpg" alt="перед" loading="lazy"></div>
-            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-2.jpg" alt="салон" loading="lazy"></div>
-            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2020-1-5t-at-awd-se-a89186-vin-3.jpg" alt="ще фото" loading="lazy"><div class="more">+15 фото</div></div>
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin.jpg" alt="перед" loading="lazy"></div>
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-3.jpg" alt="зад" loading="lazy"></div>
+            <div class="ph"><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-5.jpg" alt="ще фото" loading="lazy"><div class="more">+17 фото</div></div>
           </div>
         </div>
-        <p class="mono" style="color:var(--gray-500); font-size:var(--t-xs); margin-top:.8rem;">18 реальних HD-фото · walkaround-відео · 360° спін</p>
+        <p class="mono" style="color:var(--gray-500); font-size:var(--t-xs); margin-top:.8rem;">20 реальних HD-фото · walkaround-відео · 360° спін</p>
       </div>
 
       <!-- buybox: БЕЗ фінальної ціни — акцент на платіж/міс + бонус -->
       <aside class="buybox">
         <div class="pay-label">Орієнтовний платіж</div>
-        <div class="price">≈ 9 900 <small>грн / місяць*</small></div>
+        <div class="price">≈ 9 500 <small>грн / місяць*</small></div>
         <div class="bonus-row">
           <span style="flex:none;font-size:1.2rem;">🎁</span>
-          <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Бонус від нас: обслуговування ≈ <b style="color:#fff;">1 800 грн/міс</b> — щоб ви бачили реальні витрати наперед.</span>
+          <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Бонус: тримати це авто ≈ <b style="color:#fff;">2 100 грн/міс</b> обслуговування. <a href="#upkeep" style="color:var(--teal-500);">Детальніше ↓</a></span>
         </div>
         <div class="stack" style="margin-top:1.25rem;">
           <a href="#form" class="btn btn-primary btn-lg btn-block">Дізнатись мій платіж →</a>
@@ -160,11 +172,11 @@
 <!-- ===== КОРОТКІ СПЕЦИФІКАЦІЇ ===== -->
 <div class="specstrip">
   <div class="wrap">
-    <div class="spec-i"><div class="k">Двигун</div><div class="v">1.5 EcoBoost</div></div>
-    <div class="spec-i"><div class="k">Пробіг</div><div class="v">129 000 км</div></div>
+    <div class="spec-i"><div class="k">Двигун</div><div class="v">2.0 TFSI</div></div>
+    <div class="spec-i"><div class="k">Пробіг</div><div class="v">202 000 км</div></div>
     <div class="spec-i"><div class="k">КПП</div><div class="v">Автомат</div></div>
-    <div class="spec-i"><div class="k">Привід</div><div class="v">Повний AWD</div></div>
-    <div class="spec-i" style="border-right:0;"><div class="k">Рік</div><div class="v">2020</div></div>
+    <div class="spec-i"><div class="k">Привід</div><div class="v">quattro</div></div>
+    <div class="spec-i" style="border-right:0;"><div class="k">Рік</div><div class="v">2012</div></div>
   </div>
 </div>
 
@@ -178,8 +190,8 @@
     <div class="twocol">
       <div>
         <div class="hist">
-          <div class="row"><span class="muted">VIN-код</span><span class="mono" style="font-weight:600;">1FMCU9G69LUA89186</span></div>
-          <div class="row"><span class="muted">Історія (США)</span><span class="ok">✓ Перевірена · без серйозних ДТП</span></div>
+          <div class="row"><span class="muted">VIN-код</span><span class="mono" style="font-weight:600;">WAULFAFR3DA042764</span></div>
+          <div class="row"><span class="muted">Історія (США)</span><span class="ok">✓ Перевірена</span></div>
           <div class="row"><span class="muted">Перевірка пробігу</span><span class="ok">✓ Підтверджено</span></div>
           <div class="row"><span class="muted">Юридична чистота</span><span class="ok">✓ Не в заставі/розшуку</span></div>
           <div class="row"><span class="muted">Розмитнення</span><span class="ok">✓ Включено</span></div>
@@ -188,14 +200,39 @@
       </div>
       <div class="grid trust-grid" style="grid-template-columns:1fr; gap:1rem;">
         <div class="card tcard"><div class="ic">🔧</div><b>Передпродажна інспекція</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">142 пункти перевірки. Власний чек-ліст стану — додатковий шар довіри понад історію авто.</p></div>
-        <div class="card tcard"><div class="ic">🎁</div><b>Бонус: вартість обслуговування</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">Чесний орієнтир для цього авто: ТО + витратники ≈ <b>1 800 грн/міс</b>. Без сюрпризів після покупки.</p></div>
+        <div class="card tcard"><div class="ic">🎁</div><b>Скільки коштує тримати</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">Повний розклад витрат на місяць — у блоці нижче. <a href="#upkeep" style="color:var(--red-600);font-weight:700;">Подивитись ↓</a></p></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== БОНУС: СКІЛЬКИ КОШТУЄ ТРИМАТИ АВТО (закриває «авто це дорого») ===== -->
+<section class="section" id="upkeep" style="background:var(--gray-100);">
+  <div class="wrap">
+    <span class="eyebrow">🎁 Бонус прозорості від нас</span>
+    <h2 class="sh chev-rule">Скільки коштує тримати це авто</h2>
+    <p class="lead-sub">Багатьох лякає не сама покупка, а «невідомі» витрати після неї. Ми рахуємо їх наперед — щоб ви бачили реальну картину, без ілюзій і без зайвого страху.</p>
+    <div class="upkeep">
+      <div class="ucard"><div class="ic">🔧</div><div class="amt">≈ 1 300 ₴</div><div class="lbl">ТО та сервіс / міс</div></div>
+      <div class="ucard"><div class="ic">🛞</div><div class="amt">≈ 350 ₴</div><div class="lbl">Шини (амортизація) / міс</div></div>
+      <div class="ucard"><div class="ic">🛡</div><div class="amt">≈ 200 ₴</div><div class="lbl">Страховка ОСЦПВ / міс</div></div>
+      <div class="ucard"><div class="ic">🧴</div><div class="amt">≈ 250 ₴</div><div class="lbl">Дрібні витратники / міс</div></div>
+    </div>
+    <div class="usum">
+      <div>
+        <div class="mono" style="font-size:var(--t-xs);color:var(--gray-400);letter-spacing:.12em;text-transform:uppercase;">Обслуговування разом</div>
+        <div class="big">≈ <span>2 100 ₴</span> / місяць</div>
+      </div>
+      <div style="max-width:42ch;color:var(--gray-300);font-size:var(--t-sm);">
+        Передбачувано й без сюрпризів. Окремо — пальне: <b style="color:#fff;">≈ 6 900 ₴/міс</b> за пробігу ~1 000 км (2.0 TFSI, ~9 л/100 км × ~76 ₴/л).
+      </div>
+    </div>
+    <p class="mono" style="font-size:var(--t-xs); color:var(--text-muted); margin-top:1rem;">Орієнтовні середні витрати для цього авто в Україні (червень 2026). Реальні цифри залежать від пробігу, стилю їзди та тарифів страхування.</p>
+  </div>
+</section>
+
 <!-- ===== ЯК ОТРИМАТИ ЦЕ АВТО (реальний флоу: заявка → банк → авто) ===== -->
-<section class="section" style="background:var(--gray-100);">
+<section class="section">
   <div class="wrap">
     <span class="eyebrow">Як це працює</span>
     <h2 class="sh chev-rule">Від заявки — до ключів</h2>
@@ -272,7 +309,7 @@
       <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
         <div class="stars">★★★★★</div>
         <p style="margin-top:.6rem;">«Лишив заявку ввечері — зранку вже передзвонили з готовим рішенням. Я ФОП, у банку напряму відмовляли.»</p>
-        <div class="who"><span class="av">О</span><div><b>Олег М.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Ford Escape</div></div></div>
+        <div class="who"><span class="av">О</span><div><b>Олег М.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Audi A5</div></div></div>
       </div>
       <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
         <div class="stars">★★★★★</div>
@@ -295,22 +332,22 @@
       <span class="eyebrow">Опис</span>
       <h2 class="sh chev-rule">Про це авто</h2>
       <div class="stack" style="margin-top:1rem; color:var(--text);">
-        <p>Ford Escape 2020 SE — сучасний кросовер із турбодвигуном 1.5 EcoBoost та повним приводом AWD. Привезений зі США, з підтвердженою історією та включеним розмитненням.</p>
-        <p>Багата комплектація: Apple CarPlay / Android Auto, панорамний дах, камера 360°, адаптивний круїз-контроль, асистент смуги руху, контроль сліпих зон, підігрів керма, електропривід дверей багажника, бездротова зарядка, цифрова панель приладів.</p>
+        <p>Audi A5 2012 у топовій комплектації Prestige — стильне купе з турбодвигуном 2.0 TFSI та фірмовим повним приводом quattro. Привезене зі США, технічно у хорошому стані, з включеним розмитненням.</p>
+        <p>Багате оснащення: панорамний дах, LED-оптика, шкіряний салон із підігрівом, 3-зонний клімат-контроль, адаптивний круїз, асистент смуги, безключовий доступ, підрульові пелюстки, камера заднього виду, преміум-аудіо.</p>
         <p>Одне з авто, доступних просто зараз. Каталог оновлюється кожні 10 днів — якщо вагаєтесь, краще лишити заявку сьогодні.</p>
       </div>
     </div>
     <div>
       <span class="eyebrow">Розширені характеристики</span>
       <table class="spectable" style="margin-top:1rem;">
-        <tr><td>Кузов</td><td>Кросовер</td></tr>
-        <tr><td>Двигун</td><td>1.5 EcoBoost · турбо</td></tr>
+        <tr><td>Кузов</td><td>Купе</td></tr>
+        <tr><td>Двигун</td><td>2.0 TFSI · 211 к.с.</td></tr>
         <tr><td>Паливо</td><td>Бензин</td></tr>
-        <tr><td>КПП</td><td>Автомат</td></tr>
-        <tr><td>Привід</td><td>Повний AWD</td></tr>
-        <tr><td>Пробіг</td><td>129 000 км</td></tr>
-        <tr><td>Комплектація</td><td>SE</td></tr>
-        <tr><td>Колір</td><td>Червоний</td></tr>
+        <tr><td>КПП</td><td>Автомат S tronic</td></tr>
+        <tr><td>Привід</td><td>Повний quattro</td></tr>
+        <tr><td>Пробіг</td><td>202 000 км</td></tr>
+        <tr><td>Комплектація</td><td>Prestige</td></tr>
+        <tr><td>Колір</td><td>Білий</td></tr>
       </table>
     </div>
   </div>
