@@ -64,6 +64,22 @@
 
   .cta-band{ background:var(--red-600); color:#fff; text-align:center; }
   .cta-band h2{ font-size:var(--t-h1); }
+
+  /* reviews + google badge + faq */
+  .revs{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  @media (max-width:760px){ .revs{ grid-template-columns:1fr; } }
+  .rev{ background:var(--ink-700); border:1px solid var(--ink-600); border-radius:var(--r-md); padding:1.4rem; color:#fff; }
+  .rev .stars{ color:var(--amber-500); letter-spacing:.1em; }
+  .rev .who{ display:flex; align-items:center; gap:.7rem; margin-top:1rem; }
+  .rev .av{ width:38px;height:38px;border-radius:50%;background:var(--ink-600);color:#fff;display:grid;place-items:center;font-weight:700; }
+  .gbadge{ display:inline-flex; align-items:center; gap:.7rem; background:#fff; color:var(--ink-900); border-radius:var(--r-pill); padding:.5rem 1.1rem .5rem .85rem; margin-bottom:1.5rem; box-shadow:var(--sh-md); }
+  .gbadge .gr-name{ font-weight:700; font-size:var(--t-sm); }
+  .gbadge .gr-stars{ color:#FBBC05; letter-spacing:.06em; font-size:.85rem; }
+  .gbadge .gr-stars b{ color:var(--ink-900); }
+  .gbadge .gr-stars small{ color:var(--gray-500); font-weight:500; }
+  .faq{ max-width:840px; }
+  .faq details{ background:#fff; border:1px solid var(--hairline); border-radius:var(--r-md); padding:1rem 1.15rem; margin-bottom:.7rem; }
+  .faq summary{ font-weight:700; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -98,8 +114,8 @@
     </div>
     <div class="flex gap-3 rise" style="margin-top:1.75rem; flex-wrap:wrap;">
       <span class="chip chip-red">🚗 Авто зі США</span>
+      <span class="chip chip-teal">✓ ФОП та без офіційного доходу</span>
       <span class="chip" style="background:#24282E;color:#CBD2D9;">⏱ заявка за 15 хв</span>
-      <span class="chip" style="background:#24282E;color:#CBD2D9;">🎁 платіж + обслуговування/міс</span>
       <span class="chip" style="background:#24282E;color:#E8A317;">★ 4.9 · 320+ відгуків</span>
     </div>
   </div>
@@ -116,18 +132,7 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="wrap">
-    <span class="eyebrow">Як це працює</span>
-    <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 2rem;">Від заявки до ключів — 3 кроки</h2>
-    <div class="grid steps">
-      <div class="card step"><div class="n">01</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Попередня заявка</h3><p class="muted">Ім'я, телефон і кілька даних. За 15 хвилин готуємо попередній запит на погодження.</p></div>
-      <div class="card step"><div class="n">02</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Щойно приходить «так» — представник банку-партнера сам зв'язується й озвучує точний платіж.</p></div>
-      <div class="card step"><div class="n">03</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Підписав — і за кермом</h3><p class="muted">Підписуєте в банку — а вас уже чекає авто з готовим договором купівлі-продажу.</p></div>
-    </div>
-  </div>
-</section>
+<!-- HOW IT WORKS moved below Why-us -->
 
 <!-- CATALOG -->
 <section class="section" id="catalog" style="background:var(--gray-100);">
@@ -194,14 +199,20 @@
   </div>
 </section>
 
-<!-- MILITARY -->
+<!-- APPROVAL — закриває біль №1 «банк відмовить» (ФОП/без довідки + військові) -->
 <section class="section" id="mil">
   <div class="wrap">
     <div class="mil">
       <div class="in">
-        <span class="chip chip-red" style="margin-bottom:1rem;">🎖 Для військових</span>
-        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Окрема увага ЗСУ та ветеранам</h2>
-        <p style="color:var(--gray-300); margin-bottom:1.5rem;">Допоможемо з підбором авто та поданням попередньої заявки, підкажемо доступні банківські програми для військових — чесно, без міфів про «нульове розмитнення». Заявку можна оформити й на члена родини.</p>
+        <span class="chip chip-red" style="margin-bottom:1rem;">✓ Схвалення</span>
+        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Схвалюють навіть без офіційного доходу</h2>
+        <p style="color:var(--gray-300); margin-bottom:1.25rem;">Працюємо з ФОП, фрілансерами, «сірими» доходами та військовими. Подаємо вашу заявку одразу в <b style="color:#fff;">понад 20 банків-партнерів</b> — і шукаємо «так» там, де іншим відмовляють. Окрема увага ЗСУ та ветеранам; заявку можна оформити й на члена родини.</p>
+        <div class="flex gap-2" style="flex-wrap:wrap; margin-bottom:1.5rem;">
+          <span class="chip chip-teal">✓ Без довідки про доходи</span>
+          <span class="chip chip-teal">✓ ФОП / фріланс</span>
+          <span class="chip chip-teal">🎖 Військовим — окремо</span>
+          <span class="chip chip-teal">🤝 Ні до чого не зобов'язує</span>
+        </div>
         <a href="#catalog" class="btn btn-primary btn-lg">Підібрати авто →</a>
       </div>
     </div>
@@ -222,6 +233,57 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS (moved here, after Why-us) -->
+<section class="section" id="how">
+  <div class="wrap">
+    <span class="eyebrow">Як це працює</span>
+    <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 2rem;">Від заявки до ключів — 3 кроки</h2>
+    <div class="grid steps">
+      <div class="card step"><div class="n">01</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Попередня заявка</h3><p class="muted">Ім'я, телефон і кілька даних. За 15 хвилин готуємо попередній запит на погодження.</p></div>
+      <div class="card step"><div class="n">02</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Щойно приходить «так» — представник банку-партнера сам зв'язується й озвучує точний платіж.</p></div>
+      <div class="card step"><div class="n">03</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Підписав — і за кермом</h3><p class="muted">Підписуєте в банку — а вас уже чекає авто з готовим договором. Зазвичай забираєте <b>того ж дня</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="background:var(--ink-800); color:#fff;">
+  <div class="wrap">
+    <span class="eyebrow">Нам довіряють</span>
+    <h2 style="font-size:var(--t-h1); color:#fff; margin:.75rem 0 1rem;">Реальні відгуки клієнтів</h2>
+    <a class="gbadge" href="#" aria-label="Відгуки Google: 4.9 з 320+ відгуків">
+      <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      <span class="gr-t">
+        <span class="gr-name">Відгуки Google</span><br>
+        <span class="gr-stars">★★★★★ <b>4.9</b> <small>· 320+ відгуків</small></span>
+      </span>
+    </a>
+    <div class="revs">
+      <div class="rev"><div class="stars">★★★★★</div><p style="margin-top:.6rem;">«Лишив заявку ввечері — зранку вже передзвонили з готовим рішенням. Я ФОП, у банку напряму відмовляли.»</p><div class="who"><span class="av">О</span><div><b>Олег М.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Audi A5</div></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p style="margin-top:.6rem;">«Сподобалось, що одразу показали реальні витрати на місяць — і платіж, і обслуговування. Жодних сюрпризів.»</p><div class="who"><span class="av">Д</span><div><b>Дмитро К.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">ЗСУ · Jeep Renegade</div></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p style="margin-top:.6rem;">«Приїхав у салон у Львові — авто саме таке, як на фото. Забрав з готовим договором того ж дня.»</p><div class="who"><span class="av">І</span><div><b>Ірина В.</b><div class="mono" style="font-size:var(--t-xs);color:var(--gray-400)">Львів · Ford Escape</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--gray-100);">
+  <div class="wrap faq">
+    <span class="eyebrow">Питання та відповіді</span>
+    <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 1.5rem;">Коротко про головне</h2>
+    <details><summary>Чому ви не показуєте фінальну ціну авто?</summary><p class="muted" style="margin-top:.6rem;">Бо ви платите не «всю ціну», а щомісячний платіж — саме його ми й показуємо одразу. Точну суму підтвердить банк-партнер після безкоштовної попередньої заявки.</p></details>
+    <details><summary>А якщо в мене немає довідки про доходи?</summary><p class="muted" style="margin-top:.6rem;">Це нормально. Працюємо з ФОП, фрілансерами та неофіційними доходами. Подаємо заявку одразу в понад 20 банків — і шукаємо схвалення там, де іншим відмовляють.</p></details>
+    <details><summary>З якими банками ви працюєте?</summary><p class="muted" style="margin-top:.6rem;">Понад 20 банків-партнерів. Ми не «прив'язані» до одного — тому подаємо вашу заявку туди, де умови для вас найкращі.</p></details>
+    <details><summary>Що відбувається після того, як я залишу заявку?</summary><p class="muted" style="margin-top:.6rem;">За 15 хвилин готуємо попередній запит у банки. Щойно приходить схвалення — представник банку сам телефонує й озвучує точний платіж. Авто на цей час бронюється за вами.</p></details>
+    <details><summary>Заявка мене до чогось зобов'язує?</summary><p class="muted" style="margin-top:.6rem;">Ні. Попередня заявка безкоштовна, ні до чого не зобов'язує і не впливає на вашу кредитну історію. Рішення ви приймаєте вже після того, як побачите конкретні умови.</p></details>
+  </div>
+</section>
+
 <!-- CTA BAND -->
 <section class="section cta-band">
   <div class="wrap">
@@ -231,6 +293,7 @@
       <a href="#catalog" class="btn btn-lg" style="background:#fff; color:var(--red-700);">Обрати авто</a>
       <a href="tel:+380000000000" class="btn btn-lg btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.5);">📞 Подзвонити</a>
     </div>
+    <p class="mono" style="margin-top:1.25rem; font-size:var(--t-xs); opacity:.9;">🤝 Заявка безкоштовна, ні до чого не зобов'язує і не впливає на кредитну історію.</p>
   </div>
 </section>
 
