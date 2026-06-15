@@ -105,6 +105,32 @@
          background:var(--ink-800); color:#fff; border-radius:var(--r-lg); padding:1.5rem 1.75rem; margin-top:1.25rem; }
   .usum .big{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.1; margin-top:.2rem; }
   .usum .big span{ color:var(--red-500); }
+
+  /* ---- Google reviews badge ---- */
+  .gbadge{ display:inline-flex; align-items:center; gap:.7rem; background:#fff; color:var(--ink-900);
+           border-radius:var(--r-pill); padding:.5rem 1.1rem .5rem .85rem; margin-bottom:1.5rem; box-shadow:var(--sh-md); }
+  .gbadge .gr-t{ line-height:1.15; }
+  .gbadge .gr-name{ font-weight:700; font-size:var(--t-sm); }
+  .gbadge .gr-stars{ color:#FBBC05; letter-spacing:.06em; font-size:.85rem; }
+  .gbadge .gr-stars b{ color:var(--ink-900); }
+  .gbadge .gr-stars small{ color:var(--gray-500); font-weight:500; }
+
+  /* ---- 360° spin viewer ---- */
+  .spin-modal{ position:fixed; inset:0; z-index:100; background:rgba(10,12,14,.93); display:none; align-items:center; justify-content:center; padding:1rem; }
+  .spin-modal.open{ display:flex; }
+  .spin-box{ width:min(980px,96vw); }
+  .spin-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:.7rem; color:#fff; }
+  .spin-top .ttl{ font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
+  .spin-close{ background:none; border:0; color:#fff; font-size:1.7rem; line-height:1; cursor:pointer; padding:.2rem .5rem; }
+  .spin-stage{ position:relative; aspect-ratio:16/10; background:#000; border-radius:var(--r-md); overflow:hidden; cursor:ew-resize; user-select:none; touch-action:pan-y; }
+  .spin-stage img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; }
+  .spin-stage img.on{ opacity:1; }
+  .spin-grab{ position:absolute; bottom:.8rem; left:50%; transform:translateX(-50%); background:rgba(20,23,26,.72); color:#fff; font-family:var(--font-mono); font-size:var(--t-xs); padding:.45rem .9rem; border-radius:999px; display:flex; align-items:center; gap:.4rem; }
+  .spin-load{ position:absolute; inset:0; display:grid; place-items:center; color:var(--gray-400); font-family:var(--font-mono); font-size:var(--t-sm); }
+  .spin-ctrls{ display:flex; gap:.6rem; justify-content:center; align-items:center; margin-top:.85rem; }
+  .spin-ctrls button{ background:var(--ink-700); color:#fff; border:1px solid var(--ink-500); border-radius:var(--r-sm); padding:.55rem .9rem; cursor:pointer; font:inherit; }
+  .spin-ctrls button:hover{ border-color:var(--red-500); }
+  .spin-ctrls .count{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--gray-400); min-width:88px; text-align:center; }
 </style>
 </head>
 <body>
@@ -134,7 +160,7 @@
         <div class="gallery">
           <div class="ph ph-main">
             <span class="chip badge-mono ph-badge" style="background:rgba(20,23,26,.7);color:#fff;">1 / 20</span>
-            <button class="btn ph-360">↻ 360° огляд</button>
+            <button class="btn ph-360" type="button" id="spin360">↻ 360° огляд</button>
             <img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-1.jpg" alt="Audi A5 2012 quattro — головне фото" loading="eager">
           </div>
           <div class="ph-thumbs">
@@ -303,8 +329,19 @@
 <section class="section" style="background:var(--ink-800); color:#fff;">
   <div class="wrap">
     <span class="eyebrow">Нам довіряють</span>
-    <h2 class="sh" style="color:#fff;">Реальні відгуки клієнтів</h2>
-    <p class="lead-sub" style="color:var(--gray-400)">Відгуки під CTA піднімають конверсію на +68%.</p>
+    <h2 class="sh" style="color:#fff; margin-bottom:1rem;">Реальні відгуки клієнтів</h2>
+    <a class="gbadge" href="#" aria-label="Відгуки Google: 4.9 з 320+ відгуків">
+      <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      <span class="gr-t">
+        <span class="gr-name">Відгуки Google</span><br>
+        <span class="gr-stars">★★★★★ <b>4.9</b> <small>· 320+ відгуків</small></span>
+      </span>
+    </a>
     <div class="grid trust-grid">
       <div class="card rev" style="background:var(--ink-700);border-color:var(--ink-600);color:#fff;">
         <div class="stars">★★★★★</div>
@@ -365,6 +402,81 @@
     <span class="mono" style="font-size:var(--t-xs);">© 2026 · Львів · авто зі США під ключ</span>
   </div>
 </footer>
+
+<!-- ===== 360° SPIN VIEWER ===== -->
+<div class="spin-modal" id="spinModal" aria-hidden="true">
+  <div class="spin-box">
+    <div class="spin-top">
+      <span class="ttl">Audi A5 2012 quattro — 360° огляд</span>
+      <button class="spin-close" id="spinClose" aria-label="Закрити">×</button>
+    </div>
+    <div class="spin-stage" id="spinStage">
+      <div class="spin-load" id="spinLoad">Завантаження ракурсів…</div>
+      <div class="spin-grab">↔ обертайте перетягуванням</div>
+    </div>
+    <div class="spin-ctrls">
+      <button id="spinPrev" type="button" aria-label="Попередній ракурс">‹</button>
+      <button id="spinAuto" type="button">▶ Авто-оберт</button>
+      <span class="count" id="spinCount">ракурс 1 / 8</span>
+      <button id="spinNext" type="button" aria-label="Наступний ракурс">›</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var BASE="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin";
+  var ORDER=["","-1","-2","-3","-4","-5","-6","-7"]; // exterior walkaround frames
+  var frames=ORDER.map(function(s){return BASE+s+".jpg";});
+  var stage=document.getElementById('spinStage');
+  var modal=document.getElementById('spinModal');
+  var load=document.getElementById('spinLoad');
+  var countEl=document.getElementById('spinCount');
+  var autoBtn=document.getElementById('spinAuto');
+  var imgs=[], cur=0, built=false, autoT=null;
+
+  function build(){
+    if(built) return; built=true;
+    frames.forEach(function(src,i){
+      var im=new Image(); im.src=src; im.alt="ракурс "+(i+1); if(i===0) im.className="on";
+      im.onload=function(){ if(i===0) load.style.display='none'; };
+      stage.appendChild(im); imgs.push(im);
+    });
+  }
+  function show(i){
+    cur=(i%frames.length+frames.length)%frames.length;
+    imgs.forEach(function(im,k){ im.classList.toggle('on',k===cur); });
+    countEl.textContent="ракурс "+(cur+1)+" / "+frames.length;
+  }
+  function stopAuto(){ if(autoT){ clearInterval(autoT); autoT=null; autoBtn.textContent="▶ Авто-оберт"; } }
+  function toggleAuto(){ if(autoT){ stopAuto(); } else { autoT=setInterval(function(){ show(cur+1); },240); autoBtn.textContent="⏸ Стоп"; } }
+  function open(){ build(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); show(cur); }
+  function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); stopAuto(); }
+
+  document.getElementById('spin360').addEventListener('click',open);
+  document.getElementById('spinClose').addEventListener('click',close);
+  document.getElementById('spinPrev').addEventListener('click',function(){ stopAuto(); show(cur-1); });
+  document.getElementById('spinNext').addEventListener('click',function(){ stopAuto(); show(cur+1); });
+  autoBtn.addEventListener('click',toggleAuto);
+  modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!modal.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowLeft'){ stopAuto(); show(cur-1); }
+    else if(e.key==='ArrowRight'){ stopAuto(); show(cur+1); }
+  });
+  // drag-to-spin
+  var dragging=false, startX=0, startIdx=0, STEP=38;
+  function down(x){ dragging=true; startX=x; startIdx=cur; stopAuto(); }
+  function move(x){ if(!dragging) return; show(startIdx+Math.round((startX-x)/STEP)); }
+  function up(){ dragging=false; }
+  stage.addEventListener('mousedown',function(e){ e.preventDefault(); down(e.clientX); });
+  window.addEventListener('mousemove',function(e){ move(e.clientX); });
+  window.addEventListener('mouseup',up);
+  stage.addEventListener('touchstart',function(e){ down(e.touches[0].clientX); },{passive:true});
+  stage.addEventListener('touchmove',function(e){ move(e.touches[0].clientX); },{passive:true});
+  stage.addEventListener('touchend',up);
+})();
+</script>
 
 </body>
 </html>
