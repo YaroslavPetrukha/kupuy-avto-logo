@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Купуй Авто — Концепція 3 «Рукописний» (за ескізом)</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Pangolin&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  /* Brand tokens applied:
+     text: var(--ink-900)/#fff  accent: var(--red-600) (triangle only ~10%)
+     Concept 3 «Рукописний»: faithful to client's hand-drawn sketch. Caveat (UA-safe handwriting) */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--gray-100);color:var(--ink-900);padding:40px}
+  h1{font-family:'Manrope',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:4px}
+  .sub{color:var(--gray-500);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px}
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:48px 28px 22px;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px}
+  .card.dark{background:var(--ink-800);border-color:var(--ink-600)}
+  .cap{margin-top:auto;padding-top:30px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;
+       text-transform:uppercase;color:var(--gray-500);text-align:center}
+  .badge{display:inline-block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;
+         padding:3px 9px;border-radius:999px;margin-bottom:10px;text-transform:uppercase}
+  .b-faith{background:var(--red-050);color:var(--red-700)}
+  .b-reco{background:var(--teal-050);color:var(--teal-500)}
+  .dark .cap{color:var(--gray-400)}
+  .full{grid-column:1/-1}
+
+  /* ---------- HANDWRITTEN WORDMARK ---------- */
+  .wm{font-family:'Caveat',cursive;font-weight:700;line-height:.9;color:var(--ink-900);
+      display:inline-flex;align-items:baseline;white-space:nowrap}
+  .dark .wm{color:#fff}
+  .wm.pangolin{font-family:'Pangolin',cursive;font-weight:400}
+  .avto{margin-left:.20em}
+
+  /* triangle marker above «й» (faithful = slightly irregular/rounded; refined = crisp) */
+  .j{position:relative;display:inline-block}
+  .j .tri{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);
+          width:.62em;height:.46em;margin-bottom:.0em}
+
+  /* the two «у» get downward hand-drawn arrows (faithful only) */
+  .u{position:relative}
+  .arrows .u::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);
+    width:.34em;height:.30em;margin-top:.04em;
+    background:no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M3 3 L10 13 L17 4' fill='none' stroke='%2314171A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+  .dark.arrows .u::after, .dark .arrows .u::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M3 3 L10 13 L17 4' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+  /* refined: «АВТО» in clean geometric sans */
+  .avto-sans{font-family:'Manrope',sans-serif;font-weight:800;font-size:.62em;letter-spacing:.02em;
+             margin-left:.24em;position:relative;top:-.02em}
+  .tag{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.30em;color:var(--gray-500);
+       text-transform:uppercase;margin-top:14px}
+</style>
+</head>
+<body>
+  <h1>Купуй Авто — Концепція 3 «Рукописний» (за ескізом замовника)</h1>
+  <div class="sub">рукописний вордмарк (Caveat, укр-безпечний) · червоний трикутник = акцент · стрілки↓ як у ескізі · теплота + людяність</div>
+
+  <div class="grid">
+
+    <!-- 1. FAITHFUL primary -->
+    <div class="card full arrows">
+      <div style="text-align:center">
+        <span class="badge b-faith">Вірна репродукція ескізу</span>
+        <div class="wm" style="font-size:104px">
+          <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 76"><polygon points="50,8 92,70 8,68" fill="#E11B22" stroke="#E11B22" stroke-width="13" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+        </div>
+      </div>
+      <div class="cap">ОСНОВНИЙ (faithful) · рукопис + крейдяно-округлий трикутник↑ + стрілки-«у»↓</div>
+    </div>
+
+    <!-- 2. REFINED recommended -->
+    <div class="card full">
+      <div style="text-align:center">
+        <span class="badge b-reco">Доведена · рекомендована для запуску</span>
+        <div class="wm" style="font-size:96px">
+          <span class="kupuy">Купу<span class="j">й<svg class="tri" viewBox="0 0 100 72"><polygon points="50,7 90,64 10,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto-sans">АВТО</span>
+        </div>
+      </div>
+      <div class="cap">ГІБРИД (Monzo-модель) · рукописне «Купуй» + чистке «АВТО» (Manrope) + згладжений трикутник · стрілки прибрано для довіри</div>
+    </div>
+
+    <!-- 3. compact light faithful -->
+    <div class="card arrows">
+      <div class="wm" style="font-size:60px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 76"><polygon points="50,8 92,70 8,68" fill="#E11B22" stroke="#E11B22" stroke-width="13" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+      </div>
+      <div class="cap">Компакт (faithful)</div>
+    </div>
+
+    <!-- 4. dark refined -->
+    <div class="card dark">
+      <div class="wm" style="font-size:56px">
+        <span class="kupuy">Купу<span class="j">й<svg class="tri" viewBox="0 0 100 72"><polygon points="50,7 90,64 10,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto-sans">АВТО</span>
+      </div>
+      <div class="cap">На графіті (гібрид)</div>
+    </div>
+
+    <!-- 5. Pangolin alt -->
+    <div class="card full arrows pangolin-card">
+      <div class="wm pangolin" style="font-size:84px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 72"><polygon points="50,7 90,64 10,64" fill="#E11B22" stroke="#E11B22" stroke-width="11" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+      </div>
+      <div class="cap">Альт-шрифт — Pangolin (прямостійний моноліній, укр-безпечний)</div>
+    </div>
+
+    <!-- 6. app icon -->
+    <div class="card">
+      <div style="width:120px;height:120px;border-radius:28px;background:var(--ink-800);
+                  display:flex;align-items:center;justify-content:center">
+        <svg width="58" height="46" viewBox="0 0 100 72"><polygon points="50,7 90,64 10,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="cap">Іконка — трикутник (акцент)</div>
+    </div>
+
+    <!-- 7. with tagline -->
+    <div class="card full">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="wm" style="font-size:80px">
+          <span class="kupuy">Купу<span class="j">й<svg class="tri" viewBox="0 0 100 72"><polygon points="50,7 90,64 10,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto-sans">АВТО</span>
+        </div>
+        <div class="tag">проїжджай автобусом — повертайся машиною</div>
+      </div>
+      <div class="cap">З ДЕСКРИПТОРОМ (гібрид)</div>
+    </div>
+
+  </div>
+</body>
+</html>

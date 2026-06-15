@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Купуй Авто — лого за ескізом замовника (v2, експертна доводка)</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<style>
+  /* Brand tokens applied:
+     bg: var(--paper)/var(--ink-800)  text: var(--ink-900)  accent: var(--red-600)
+     font: var(--font-display) Unbounded · red confined to triangle (≤15%)
+     v2 fixes from UI Designer + Accessibility Auditor + Visual Storyteller */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--gray-100);color:var(--ink-900);padding:40px}
+  h1{font-family:var(--font-display);font-weight:800;font-size:1.5rem;margin-bottom:4px}
+  .sub{color:var(--gray-500);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px}
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:42px 28px 22px;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:230px}
+  .card.dark{background:var(--ink-800);border-color:var(--ink-600)}
+  .cap{margin-top:auto;padding-top:28px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;
+       text-transform:uppercase;color:var(--gray-500);text-align:center}
+  .dark .cap{color:var(--gray-400)}
+  .full{grid-column:1/-1}
+
+  /* ---------- WORDMARK ---------- */
+  .wm{font-family:var(--font-display);font-weight:700;line-height:1;
+      display:inline-flex;align-items:baseline;color:var(--ink-900)}
+  .dark .wm{color:#fff}
+  .kupuy{letter-spacing:-.015em}            /* tighten internal gaps */
+  .wm .avto{margin-left:.22em;font-weight:800;letter-spacing:-.005em}
+  .wm .avto.red{color:var(--red-600)}
+  .dark .wm .avto.red{color:var(--red-500)}
+
+  /* «й» carries the triangle marker directly above it (flatter, lighter, nudged right) */
+  .j{position:relative;display:inline-block}
+  .j .tri{position:absolute;left:calc(50% + .03em);bottom:100%;transform:translateX(-50%);
+          width:.78em;height:.55em;margin-bottom:.10em}
+
+  /* the two «у» descenders fork into downward chevrons — thin, close, graphite */
+  .u{position:relative}
+  .u::after{content:"";position:absolute;left:calc(50% - .02em);top:100%;transform:translateX(-50%);
+    width:.40em;height:.26em;margin-top:-.02em;
+    background:no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'%3E%3Cpath d='M3 3 L10 11 L17 3' fill='none' stroke='%2314171A' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+  .dark .u::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'%3E%3Cpath d='M3 3 L10 11 L17 3' fill='none' stroke='%23ffffff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+  .tag{font-family:var(--font-mono);font-size:.30em;letter-spacing:.18em;color:var(--gray-500);
+       text-transform:uppercase;margin-top:1.25em}
+</style>
+</head>
+<body>
+  <h1>Купуй Авто — лого v2 (доводка: UI Designer · Accessibility · Visual Storyteller)</h1>
+  <div class="sub">червоний #E11B22 (лише трикутник) · графіт #14171A · Unbounded · трикутник↑1.42:1 над «й» · стрілки-«у»↓ тонші</div>
+
+  <div class="grid">
+
+    <!-- 1. PRIMARY -->
+    <div class="card full">
+      <div class="wm" style="font-size:66px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 70"><polygon points="50,10 89,62 11,62" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+      </div>
+      <div class="cap">ОСНОВНИЙ · трикутник↑ над «й» · хвостики «у» = стрілки↓ · червоний лише на трикутнику</div>
+    </div>
+
+    <!-- 2. with meaning-anchor tagline (Visual Storyteller fix) -->
+    <div class="card full">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="wm" style="font-size:58px">
+          <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 70"><polygon points="50,10 89,62 11,62" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+        </div>
+        <div class="tag" style="font-size:13px">попередня заявка за 15 хв</div>
+      </div>
+      <div class="cap">З ПІДПИСОМ — гасло-дескриптор під вордмарком</div>
+    </div>
+
+    <!-- 3. compact light -->
+    <div class="card">
+      <div class="wm" style="font-size:38px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 70"><polygon points="50,10 89,62 11,62" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+      </div>
+      <div class="cap">Компакт (світла)</div>
+    </div>
+
+    <!-- 4. compact dark -->
+    <div class="card dark">
+      <div class="wm" style="font-size:38px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 70"><polygon points="50,10 89,62 11,62" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto">Авто</span>
+      </div>
+      <div class="cap">Компакт (графіт)</div>
+    </div>
+
+    <!-- 5. two-tone alt -->
+    <div class="card full">
+      <div class="wm" style="font-size:50px">
+        <span class="kupuy">К<span class="u">у</span>п<span class="u">у</span><span class="j">й<svg class="tri" viewBox="0 0 100 70"><polygon points="50,10 89,62 11,62" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/></svg></span></span><span class="avto red">Авто</span>
+      </div>
+      <div class="cap">Альтернатива — двоколірна («Авто» червоним, якщо потрібен сильніший акцент)</div>
+    </div>
+
+    <!-- 6. app icon (>=32px) light -->
+    <div class="card">
+      <div style="width:120px;height:120px;border-radius:26px;background:#fff;border:1px solid var(--gray-200);
+                  display:flex;align-items:center;justify-content:center">
+        <svg width="60" height="76" viewBox="0 0 100 124">
+          <polygon points="50,10 86,64 14,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M26 90 L50 112 L74 90" fill="none" stroke="#14171A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="cap">Іконка застосунку ≥32px (світла) — трикутник↑ + стрілка↓</div>
+    </div>
+
+    <!-- 7. app icon (>=32px) dark -->
+    <div class="card">
+      <div style="width:120px;height:120px;border-radius:26px;background:var(--ink-800);
+                  display:flex;align-items:center;justify-content:center">
+        <svg width="60" height="76" viewBox="0 0 100 124">
+          <polygon points="50,10 86,64 14,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M26 90 L50 112 L74 90" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="cap">Іконка застосунку ≥32px (графіт) — шеврон білий</div>
+    </div>
+
+    <!-- 8. favicon 16px = triangle only -->
+    <div class="card full">
+      <div style="display:flex;align-items:center;gap:40px;justify-content:center">
+        <div style="width:16px;height:16px;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 100 100"><polygon points="50,24 84,78 16,78" fill="#E11B22" stroke="#E11B22" stroke-width="8" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center">
+          <svg width="32" height="32" viewBox="0 0 100 100"><polygon points="50,24 84,78 16,78" fill="#E11B22" stroke="#E11B22" stroke-width="8" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="width:64px;height:64px;display:flex;align-items:center;justify-content:center">
+          <svg width="64" height="64" viewBox="0 0 100 100"><polygon points="50,24 84,78 16,78" fill="#E11B22" stroke="#E11B22" stroke-width="8" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="cap">Фавікон 16 / 32 / 64px — лише трикутник (шеврон зникає <24px, тому прибрано)</div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Купуй Авто — Концепція 2 «Трикутник-А» (фінал)</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  /* Brand tokens applied:
+     text: var(--ink-900)/#fff  accent: var(--red-600)  font: Montserrat 800
+     Concept 2 «Трикутник-А»: red triangle WITH an А-counter replaces letter «А» in АВТО. red ≤15% */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--gray-100);color:var(--ink-900);padding:40px}
+  h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:4px}
+  .sub{color:var(--gray-500);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px}
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:46px 28px 22px;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:230px}
+  .card.dark{background:var(--ink-800);border-color:var(--ink-600)}
+  .cap{margin-top:auto;padding-top:30px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;
+       text-transform:uppercase;color:var(--gray-500);text-align:center}
+  .dark .cap{color:var(--gray-400)}
+  .full{grid-column:1/-1}
+
+  /* ---------- WORDMARK : ТРИКУТНИК-А (з контр-формою) ---------- */
+  .wm{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:.005em;line-height:.9;
+      color:var(--ink-900);display:inline-flex;align-items:baseline;white-space:nowrap}
+  .dark .wm{color:#fff}
+  .avto-rest{margin-left:.32em}
+  .triA{display:inline-block;vertical-align:baseline;width:.66em;height:.78em;
+        position:relative;top:.085em;margin-right:.06em}
+  .triA path{fill:var(--red-600)}
+  .lean .triA{transform:skewX(-6deg);transform-origin:bottom left}
+
+  .stack{display:inline-flex;flex-direction:column;align-items:center;line-height:.84}
+  .stack .row2{display:inline-flex;align-items:baseline}
+  .stack .avto-rest{margin-left:0}
+
+  .tag{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.34em;color:var(--gray-500);
+       text-transform:uppercase;margin-top:18px}
+</style>
+</head>
+<body>
+  <h1>Купуй Авто — Концепція 2 «Трикутник-А» (фінал)</h1>
+  <div class="sub">червоний трикутник із контр-формою «А» = літера А в АВТО · графіт #14171A · Montserrat 800 · свіже, не шеврон / не військове</div>
+
+  <!-- reusable defs note: triangle path = outer triangle + inner А-counter, evenodd -->
+  <div class="grid">
+
+    <!-- 1. PRIMARY -->
+    <div class="card full">
+      <div class="wm" style="font-size:76px">
+        <span class="kupuy">КУПУЙ</span><span class="avto-rest"><svg class="triA" viewBox="0 0 66 78"><path fill-rule="evenodd" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>ВТО</span>
+      </div>
+      <div class="cap">ОСНОВНИЙ · «КУПУЙ ◭ВТО» — трикутник із контр-формою = «А»</div>
+    </div>
+
+    <!-- 2. leaning motion -->
+    <div class="card full lean">
+      <div class="wm" style="font-size:76px">
+        <span class="kupuy">КУПУЙ</span><span class="avto-rest"><svg class="triA" viewBox="0 0 66 78"><path fill-rule="evenodd" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>ВТО</span>
+      </div>
+      <div class="cap">З НАХИЛОМ −6° — динаміка / форвард-рух</div>
+    </div>
+
+    <!-- 3. stacked compact -->
+    <div class="card">
+      <div class="wm" style="font-size:52px">
+        <div class="stack">
+          <span class="kupuy">КУПУЙ</span>
+          <span class="row2"><span class="avto-rest"><svg class="triA" viewBox="0 0 66 78"><path fill-rule="evenodd" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>ВТО</span></span>
+        </div>
+      </div>
+      <div class="cap">Стек (компакт)</div>
+    </div>
+
+    <!-- 4. dark -->
+    <div class="card dark">
+      <div class="wm" style="font-size:50px">
+        <span class="kupuy">КУПУЙ</span><span class="avto-rest"><svg class="triA" viewBox="0 0 66 78"><path fill-rule="evenodd" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>ВТО</span>
+      </div>
+      <div class="cap">На графіті</div>
+    </div>
+
+    <!-- 5. app icon graphite tile -->
+    <div class="card">
+      <div style="width:120px;height:120px;border-radius:28px;background:var(--ink-800);
+                  display:flex;align-items:center;justify-content:center">
+        <svg width="66" height="66" viewBox="0 0 100 100"><g transform="translate(17,11)"><path fill-rule="evenodd" fill="#E11B22" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></g></svg>
+      </div>
+      <div class="cap">Іконка — трикутник-«А» на графіті</div>
+    </div>
+
+    <!-- 6. app icon red inverse -->
+    <div class="card">
+      <div style="width:120px;height:120px;border-radius:28px;background:var(--red-600);
+                  display:flex;align-items:center;justify-content:center">
+        <svg width="66" height="66" viewBox="0 0 100 100"><g transform="translate(17,11)"><path fill-rule="evenodd" fill="#fff" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></g></svg>
+      </div>
+      <div class="cap">Іконка — інверс (білий на червоному)</div>
+    </div>
+
+    <!-- 7. with descriptor -->
+    <div class="card full">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="wm" style="font-size:62px">
+          <span class="kupuy">КУПУЙ</span><span class="avto-rest"><svg class="triA" viewBox="0 0 66 78"><path fill-rule="evenodd" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>ВТО</span>
+        </div>
+        <div class="tag">попередня заявка за 15 хв</div>
+      </div>
+      <div class="cap">З ДЕСКРИПТОРОМ</div>
+    </div>
+
+    <!-- 8. favicon sizes -->
+    <div class="card full">
+      <div style="display:flex;align-items:center;gap:40px;justify-content:center">
+        <svg width="16" height="16" viewBox="0 0 66 78"><path fill-rule="evenodd" fill="#E11B22" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>
+        <svg width="32" height="32" viewBox="0 0 66 78"><path fill-rule="evenodd" fill="#E11B22" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>
+        <svg width="64" height="64" viewBox="0 0 66 78"><path fill-rule="evenodd" fill="#E11B22" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></svg>
+      </div>
+      <div class="cap">Фавікон 16 / 32 / 64px — контр-форма тримається</div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Купуй Авто — концепції логотипу</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--ink-900);color:#fff;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red-500)}
+  h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.02;margin:14px 0 18px}
+  .lead{color:var(--gray-300);font-size:1.05rem;max-width:680px;line-height:1.6}
+  .slogans{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px}
+  .chip{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;padding:8px 14px;border-radius:999px;
+        background:var(--ink-700);border:1px solid var(--ink-500);color:var(--gray-200)}
+  .chip b{color:#fff}
+  .grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:46px}
+  @media(min-width:760px){.grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--ink-800);border:1px solid var(--ink-600);border-radius:18px;overflow:hidden;
+        display:flex;flex-direction:column;transition:transform .25s var(--ease,ease),border-color .25s}
+  .card:hover{transform:translateY(-4px);border-color:var(--red-600)}
+  .shot{background:#fff;aspect-ratio:16/11;overflow:hidden;display:flex;align-items:flex-start;justify-content:center}
+  .shot img{width:100%;height:auto;display:block}
+  .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .num{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;color:var(--red-500);text-transform:uppercase}
+  .ctitle{font-family:var(--font-display);font-weight:700;font-size:1.25rem;margin:6px 0 8px}
+  .cdesc{color:var(--gray-300);font-size:.92rem;line-height:1.5;flex:1}
+  .open{margin-top:16px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+        background:var(--red-600);color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;
+        padding:11px 18px;border-radius:10px;transition:background .2s}
+  .open:hover{background:var(--red-700)}
+  .open svg{width:14px;height:14px}
+  .foot{margin-top:54px;color:var(--gray-500);font-family:var(--font-mono);font-size:.74rem;line-height:1.7;border-top:1px solid var(--ink-600);padding-top:22px}
+  .tri-badge{display:inline-block;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;
+             border-bottom:13px solid var(--red-600);vertical-align:middle;margin-right:8px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow"><span class="tri-badge"></span>Купуй Авто · айдентика</div>
+    <h1>Концепції логотипу</h1>
+    <p class="lead">Три напрямки знака для «Купуй Авто». Кожен побудований навколо червоного трикутника як акценту. Натисніть «Відкрити» під концепцією, щоб роздивитися всі варіанти застосування (світла/темна тема, іконка, фавікон).</p>
+
+    <div class="slogans">
+      <span class="chip"><b>Попередня заявка за 15 хв</b></span>
+      <span class="chip">Проїжджай автобусом — повертайся машиною</span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <a class="shot" href="concept1/index.html"><img src="concept1/preview.png" alt="Концепція 1"></a>
+        <div class="body">
+          <div class="num">Концепція 1</div>
+          <div class="ctitle">За ескізом</div>
+          <div class="cdesc">Червоний трикутник над літерою «й», а хвостики двох «у» переходять у стрілки вниз — як на вашому ескізі. Шрифт Unbounded.</div>
+          <a class="open" href="concept1/index.html">Відкрити <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <a class="shot" href="concept2/index.html"><img src="concept2/preview.png" alt="Концепція 2"></a>
+        <div class="body">
+          <div class="num">Концепція 2</div>
+          <div class="ctitle">Трикутник-А</div>
+          <div class="cdesc">Червоний трикутник стає літерою «А» у слові АВТО — «КУПУЙ ◭ВТО». Свіжий, лаконічний, сучасний. Шрифт Montserrat.</div>
+          <a class="open" href="concept2/index.html">Відкрити <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <a class="shot" href="concept3/index.html"><img src="concept3/preview.png" alt="Концепція 3"></a>
+        <div class="body">
+          <div class="num">Концепція 3</div>
+          <div class="ctitle">Рукописний</div>
+          <div class="cdesc">Найвірніше відтворення ескізу — теплий рукописний почерк. Дві подачі: «жива» репродукція та доведена для запуску.</div>
+          <a class="open" href="concept3/index.html">Відкрити <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      Палітра: червоний #E11B22 (акцент) · графіт #14171A.<br>
+      Чернетка для перегляду. Фінальний вектор (криві) і повний лого-пак збираємо після вибору концепції.
+    </div>
+  </div>
+</body>
+</html>

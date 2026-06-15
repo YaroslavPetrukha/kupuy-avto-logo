@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Купуй Авто — іконка застосунку">
+  <!-- App icon: graphite squircle + red triangle-A. For inverse use bg #E11B22 + triangle #fff -->
+  <rect width="120" height="120" rx="28" fill="#1A1D21"/>
+  <g transform="translate(27,21)"><path fill-rule="evenodd" fill="#E11B22" d="M33 2 L63 76 L3 76 Z M33 26 L45 53 L21 53 Z"/></g>
+</svg>

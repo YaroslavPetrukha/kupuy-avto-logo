@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 124" role="img" aria-label="Купуй Авто — іконка застосунку">
+  <!-- App icon ≥32px: triangle up + chevron down. On dark tiles set chevron stroke to #ffffff -->
+  <polygon points="50,10 86,64 14,64" fill="#E11B22" stroke="#E11B22" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M26 90 L50 112 L74 90" fill="none" stroke="#14171A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
