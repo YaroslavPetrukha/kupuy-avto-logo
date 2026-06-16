@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Шар_2" data-name="Шар 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561.96 170.57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e52427;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        font-family: Montserrat-ExtraBold, Montserrat;
+        font-size: 78.18px;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        fill: #e52421;
+      }
+
+      .cls-6 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="_Шар_1-2" data-name="Шар 1">
+    <g>
+      <g>
+        <polygon class="cls-1" points="283.66 0 235.33 54.48 331.98 54.48 283.66 0"/>
+        <text class="cls-4" transform="translate(0 149.26)"><tspan class="cls-8" x="0" y="0">К</tspan><tspan class="cls-6" x="58.48" y="0">У</tspan><tspan class="cls-2" x="115.63" y="0">П</tspan><tspan class="cls-6" x="178.96" y="0">У</tspan><tspan class="cls-3" x="236.1" y="0">Й А</tspan><tspan class="cls-7" x="388.08" y="0">ВТ</tspan><tspan class="cls-3" x="496.36" y="0">О</tspan></text>
+      </g>
+      <rect class="cls-5" x="5.55" y="166.57" width="553.98" height="4"/>
+    </g>
+  </g>
+</svg>

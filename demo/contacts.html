@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакти — КУПУЙ АВТО</title>
+<link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  .topbar { position:sticky; top:0; z-index:40; background:rgba(27,9,12,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
+  .nav-links a { color:var(--gray-300); font-size:var(--t-sm); margin-left:1.5rem; }
+  .nav-links a:hover{ color:#fff; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  .hero { background:var(--ink-800); color:#fff; position:relative; overflow:hidden; }
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(800px 420px at 78% -5%,rgba(227,38,54,.18),transparent 62%);pointer-events:none;z-index:0;}
+  .hero .wrap{ position:relative; z-index:1; padding-block: clamp(2.5rem,7vw,4.5rem); }
+  .hero h1{ font-size:var(--t-h1); max-width:18ch; }
+
+  .ctwocol{ display:grid; grid-template-columns:1.1fr .9fr; gap:2.5rem; align-items:start; }
+  @media (max-width:860px){ .ctwocol{ grid-template-columns:1fr; } }
+  .cinfo{ display:grid; gap:1rem; }
+  .crow{ display:flex; gap:1rem; align-items:flex-start; padding:1.2rem 1.3rem; border:1px solid var(--hairline); border-radius:var(--r-md); background:#fff; }
+  .crow .ic{ width:42px;height:42px;border-radius:var(--r-sm);display:grid;place-items:center;background:var(--red-050);color:var(--red-600);flex:none; }
+  .crow .k{ font-weight:800; }
+  .crow .v{ color:var(--text-muted); font-size:var(--t-sm); margin-top:.15rem; }
+  .crow a{ color:var(--red-600); font-weight:700; }
+
+  .formwrap { background:var(--ink-800); color:#fff; border-radius:var(--r-lg); overflow:hidden; }
+  .formwrap .inner { padding: clamp(1.5rem,4vw,2.25rem); }
+  .field { width:100%; padding:1rem 1.1rem; border-radius:var(--r-sm); border:1.5px solid var(--ink-500); background:var(--ink-700); color:#fff; font:inherit; }
+  .field::placeholder{ color:var(--gray-500); }
+  .field:focus{ outline:none; border-color:var(--red-500); }
+
+  .map{ aspect-ratio:16/7; border-radius:var(--r-md); background:
+        linear-gradient(135deg, var(--ink-700), var(--ink-800));
+        display:grid; place-items:center; color:var(--gray-400); border:1px solid var(--hairline); margin-top:1.25rem; }
+  .icn{ width:1em; height:1em; display:inline-block; vertical-align:-0.14em; flex:none; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wm" href="home.html" aria-label="Купуй Авто — на головну"><img class="brand-logo" src="assets/brand/logo.svg" alt="Купуй Авто"></a>
+    <div class="nav-links">
+      <a href="home.html#catalog">Топ авто</a>
+      <a href="home.html#how">Як це працює</a>
+      <a href="about.html">Про нас</a>
+      <a href="contacts.html">Контакти</a>
+    </div>
+    <a href="tel:+380000000000" class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1.1rem;">Подзвонити</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bg-pattern flip-y" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow rise">Контакти</span>
+    <h1 class="rise" style="margin:1rem 0 1rem;">Звʼяжіться з нами</h1>
+    <p class="rise muted" style="color:var(--gray-300); font-size:var(--t-lead); max-width:50ch;">
+      Маєте питання чи готові обрати авто — ми завжди на звʼязку.
+    </p>
+  </div>
+  <div class="chev-strip"></div>
+</section>
+
+<!-- CONTACTS + FORM -->
+<section class="section">
+  <div class="wrap ctwocol">
+    <div>
+      <div class="cinfo">
+        <div class="crow">
+          <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg></div>
+          <div><div class="k">Телефон</div><div class="v">Зателефонуйте — відповімо на всі питання</div><a href="tel:+380000000000">+38 (0XX) XXX-XX-XX</a></div>
+        </div>
+        <div class="crow">
+          <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></div>
+          <div><div class="k">Email</div><div class="v">Напишіть нам у будь-який час</div><a href="mailto:info@kupuy-avto.ua">info@kupuy-avto.ua</a></div>
+        </div>
+        <div class="crow">
+          <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg></div>
+          <div><div class="k">Центральний офіс</div><div class="v">м. Львів, вул. Богдана Хмельницького, 228</div></div>
+        </div>
+        <div class="crow">
+          <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3 2"/></svg></div>
+          <div><div class="k">Графік роботи</div><div class="v">Уточнюється</div></div>
+        </div>
+      </div>
+      <div class="map"><span class="mono" style="font-size:var(--t-sm);">Карта · м. Львів, вул. Б. Хмельницького, 228</span></div>
+    </div>
+
+    <div class="formwrap">
+      <div class="inner">
+        <span class="eyebrow" style="color:var(--red-500)">Без першого внеску</span>
+        <h3 style="font-family:var(--font-display); font-size:var(--t-h3); color:#fff; margin:.6rem 0 .5rem;">Залиште контакти</h3>
+        <p style="color:var(--gray-300); margin:0 0 1.25rem;">Залиште контакти — і ми передзвонимо у зручний для вас час.</p>
+        <div class="stack">
+          <input class="field" placeholder="Ваше ім'я" aria-label="Ваше ім'я">
+          <input class="field" placeholder="Телефон" inputmode="tel" aria-label="Телефон">
+          <button class="btn btn-primary btn-lg btn-block" type="button">Передзвоніть мені →</button>
+        </div>
+        <p class="mono" style="font-size:var(--t-xs); color:var(--teal-500); margin-top:1rem;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовно, ні до чого не зобовʼязує.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--ink-900); color:var(--gray-400); padding:3rem 0;">
+  <div class="wrap">
+    <div class="flex between" style="flex-wrap:wrap; gap:2rem;">
+      <div style="max-width:38ch;">
+        <a class="wm" href="home.html" aria-label="Купуй Авто"><img class="brand-logo" src="assets/brand/logo.svg" alt="Купуй Авто"></a>
+        <p style="margin-top:1rem; font-size:var(--t-sm);">Без першого внеску, із зрозумілим платежем щомісяця. Попереднє погодження за 15 хвилин: Львів та інші міста України.</p>
+      </div>
+      <div class="mono" style="font-size:var(--t-xs); line-height:2;">
+        <div style="color:#fff; margin-bottom:.5rem; letter-spacing:.1em;">КОНТАКТИ</div>
+        +38 (0XX) XXX-XX-XX<br>м. Львів, вул. Богдана Хмельницького, 228<br>Графік роботи — уточнюється
+      </div>
+    </div>
+    <div class="chev-strip" style="margin:2rem 0 1.5rem; opacity:.5;"></div>
+    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Допомагаємо підібрати авто та оформити попереднє погодження. Остаточні умови визначає банк-партнер. Не є публічною офертою.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Про нас — КУПУЙ АВТО</title>
+<link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  .topbar { position:sticky; top:0; z-index:40; background:rgba(27,9,12,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
+  .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
+  .nav-links a { color:var(--gray-300); font-size:var(--t-sm); margin-left:1.5rem; }
+  .nav-links a:hover{ color:#fff; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  .hero { background:var(--ink-800); color:#fff; position:relative; overflow:hidden; }
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(800px 420px at 78% -5%,rgba(227,38,54,.18),transparent 62%);pointer-events:none;z-index:0;}
+  .hero .wrap{ position:relative; z-index:1; padding-block: clamp(3rem,8vw,5.5rem); }
+  .hero h1{ font-size:var(--t-h1); max-width:18ch; }
+  .hero .accent{ color:var(--red-500); }
+
+  .blocks{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:860px){ .blocks{ grid-template-columns:1fr; } }
+  .blk{ padding:1.75rem; }
+  .blk .ic{ width:46px;height:46px;border-radius:var(--r-sm);display:grid;place-items:center;background:var(--red-050);color:var(--red-600);margin-bottom:1rem; }
+  .blk h3{ font-family:var(--font-body); font-weight:800; font-size:1.2rem; margin-bottom:.5rem; }
+
+  .partner{ background:var(--ink-800); color:#fff; border-radius:var(--r-lg); padding:clamp(1.75rem,4vw,3rem); position:relative; overflow:hidden; }
+  .partner .in{ position:relative; z-index:1; max-width:64ch; }
+  .partner ul{ list-style:none; margin:1.25rem 0 1.5rem; }
+  .partner li{ display:flex; gap:.6rem; align-items:flex-start; margin-bottom:.6rem; color:var(--gray-300); }
+  .partner li svg{ color:var(--teal-500); flex:none; margin-top:.15rem; }
+
+  .icn{ width:1em; height:1em; display:inline-block; vertical-align:-0.14em; flex:none; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wm" href="home.html" aria-label="Купуй Авто — на головну"><img class="brand-logo" src="assets/brand/logo.svg" alt="Купуй Авто"></a>
+    <div class="nav-links">
+      <a href="home.html#catalog">Топ авто</a>
+      <a href="home.html#how">Як це працює</a>
+      <a href="about.html">Про нас</a>
+      <a href="contacts.html">Контакти</a>
+    </div>
+    <a href="contacts.html" class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1.1rem;">Звʼязатися</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bg-pattern flip-x" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow rise">Про нас</span>
+    <h1 class="rise" style="margin:1rem 0 1rem;">Робимо власне авто <span class="accent">доступним.</span></h1>
+    <p class="rise muted" style="color:var(--gray-300); font-size:var(--t-lead); max-width:52ch;">
+      Допомагаємо обрати машину й оформити зручне фінансування — просто, швидко та без зайвих клопотів.
+    </p>
+  </div>
+  <div class="chev-strip"></div>
+</section>
+
+<!-- BLOCKS -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid blocks">
+      <div class="card blk">
+        <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17.5 20a6 6 0 0 0-3-5.2"/></svg></div>
+        <h3>Хто ми</h3>
+        <p class="muted">Ми — команда, що поєднує великий каталог авто й банківське фінансування в одному місці. Беремо на себе всю рутину, щоб ви просто обрали машину та забрали її з готовим договором.</p>
+      </div>
+      <div class="card blk">
+        <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>Як це працює</h3>
+        <p class="muted">Ви обираєте авто й залишаєте контакти. Ми готуємо для вас попереднє погодження. Далі представник банку звʼязується з вами та оформлює угоду — вам залишається лише забрати авто.</p>
+      </div>
+      <div class="card blk">
+        <div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.7-3.2 7.6-7.5 8.7-4.3-1.1-7.5-4-7.5-8.7V5.8z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Чому нам довіряють</h3>
+        <p class="muted">Ми показуємо зрозумілий щомісячний платіж і середнє обслуговування — без прихованих сюрпризів. Працюємо чесно й уважно до кожної ситуації, тож ви завжди розумієте, за що платите.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПАРТНЕРАМ -->
+<section class="section" style="background:var(--gray-100);">
+  <div class="wrap">
+    <div class="partner">
+      <div class="bg-pattern soft" aria-hidden="true"></div>
+      <div class="in">
+        <span class="chip chip-red" style="margin-bottom:1rem;">Партнерам</span>
+        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Стати нашим партнером</h2>
+        <p style="color:var(--gray-300);">Маєте автомайданчик? Пропонуйте клієнтам зручне фінансування разом із нами. Ми беремо на себе оформлення, а ви продаєте більше авто й закриваєте угоди швидше.</p>
+        <ul>
+          <li><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Більше угод: клієнти купують навіть без першого внеску</li>
+          <li><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Уся робота з фінансуванням — на нашому боці</li>
+          <li><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Швидке попереднє погодження для ваших покупців</li>
+        </ul>
+        <a href="contacts.html" class="btn btn-primary btn-lg">Стати партнером →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-band" style="background:var(--red-600); color:#fff; text-align:center;">
+  <div class="wrap">
+    <h2 style="font-size:var(--t-h1); margin-bottom:.75rem;">Готові обрати своє авто?</h2>
+    <p style="max-width:48ch; margin:0 auto 1.75rem; opacity:.92;">Без першого внеску — лишіть контакти, і ми підберемо авто під ваш бюджет.</p>
+    <a href="home.html#catalog" class="btn btn-lg" style="background:#fff; color:var(--red-700);">Обрати авто</a>
+  </div>
+</section>
+
+<footer style="background:var(--ink-900); color:var(--gray-400); padding:3rem 0;">
+  <div class="wrap">
+    <div class="flex between" style="flex-wrap:wrap; gap:2rem;">
+      <div style="max-width:38ch;">
+        <a class="wm" href="home.html" aria-label="Купуй Авто"><img class="brand-logo" src="assets/brand/logo.svg" alt="Купуй Авто"></a>
+        <p style="margin-top:1rem; font-size:var(--t-sm);">Без першого внеску, із зрозумілим платежем щомісяця. Попереднє погодження за 15 хвилин: Львів та інші міста України.</p>
+      </div>
+      <div class="mono" style="font-size:var(--t-xs); line-height:2;">
+        <div style="color:#fff; margin-bottom:.5rem; letter-spacing:.1em;">КОНТАКТИ</div>
+        +38 (0XX) XXX-XX-XX<br>м. Львів, вул. Богдана Хмельницького, 228<br>Графік роботи — уточнюється
+      </div>
+    </div>
+    <div class="chev-strip" style="margin:2rem 0 1.5rem; opacity:.5;"></div>
+    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Допомагаємо підібрати авто та оформити попереднє погодження. Остаточні умови визначає банк-партнер. Не є публічною офертою.</p>
+  </div>
+</footer>
+
+</body>
+</html>
