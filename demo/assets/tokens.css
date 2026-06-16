@@ -210,17 +210,20 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
    BRAND PATTERN (decorative, mirrorable) — assets/brand/pattern.svg
    Red triangular field; used as a faint texture on dark surfaces.
    ============================================================ */
-/* ONE large instance (no tiling), as a visible halftone-triangle corner motif */
+/* ONE large halftone-triangle motif anchored to a corner, dissolved into the
+   background with a gradient mask so it reads as brand atmosphere — never a
+   texture sitting behind the headline. Echoes the logo's triangle. */
 .bg-pattern {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('brand/pattern.svg') no-repeat;
-  background-position: right bottom;
-  background-size: auto 125%;
-  opacity: .42;
+  background: url('brand/pattern.svg') no-repeat right bottom;
+  background-size: auto 120%;
+  opacity: .55;
+  -webkit-mask-image: linear-gradient(to top left, #000 0%, rgba(0,0,0,.5) 26%, transparent 56%);
+          mask-image: linear-gradient(to top left, #000 0%, rgba(0,0,0,.5) 26%, transparent 56%);
 }
-.bg-pattern.flip-x { transform: scaleX(-1); }
-.bg-pattern.flip-y { transform: scaleY(-1); }
-.bg-pattern.soft   { opacity: .3; }
+.bg-pattern.flip-x { transform: scaleX(-1); }   /* motif → bottom-left corner */
+.bg-pattern.flip-y { transform: scaleY(-1); }   /* motif → top-right corner */
+.bg-pattern.soft   { opacity: .34; background-size: auto 150%; }
 /* brand logo lockup in bars */
 .brand-logo { height: 30px; width: auto; display: block; }
 @media (max-width:480px){ .brand-logo{ height: 26px; } }
