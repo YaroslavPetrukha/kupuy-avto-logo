@@ -215,7 +215,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
    texture sitting behind the headline. Echoes the logo's triangle. */
 .bg-pattern {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('brand/pattern.svg') no-repeat right bottom;
+  background: url('brand/pattern-r.svg') no-repeat right bottom;
   background-size: auto 120%;
   opacity: .55;
   -webkit-mask-image: linear-gradient(to top left, #000 0%, rgba(0,0,0,.5) 26%, transparent 56%);
@@ -224,9 +224,9 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
 .bg-pattern.flip-x { transform: scaleX(-1); }   /* motif → bottom-left corner */
 .bg-pattern.flip-y { transform: scaleY(-1); }   /* motif → top-right corner */
 .bg-pattern.soft   { opacity: .34; background-size: auto 150%; }
-/* brand logo lockup in bars */
-.brand-logo { height: 30px; width: auto; display: block; }
-@media (max-width:480px){ .brand-logo{ height: 26px; } }
+/* brand logo lockup in bars — sized to balance the primary CTA button */
+.brand-logo { height: 42px; width: auto; display: block; }
+@media (max-width:480px){ .brand-logo{ height: 34px; } }
 
 /* ============================================================
    INFINITE CAROUSEL (catalog — endless auto-scroll marquee)
