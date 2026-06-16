@@ -210,15 +210,17 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
    BRAND PATTERN (decorative, mirrorable) — assets/brand/pattern.svg
    Red triangular field; used as a faint texture on dark surfaces.
    ============================================================ */
+/* ONE large instance (no tiling), as a visible halftone-triangle corner motif */
 .bg-pattern {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('brand/pattern.svg') repeat;
-  background-size: 240px auto;
-  opacity: .05;
+  background: url('brand/pattern.svg') no-repeat;
+  background-position: right bottom;
+  background-size: auto 125%;
+  opacity: .42;
 }
 .bg-pattern.flip-x { transform: scaleX(-1); }
 .bg-pattern.flip-y { transform: scaleY(-1); }
-.bg-pattern.soft   { opacity: .035; }
+.bg-pattern.soft   { opacity: .3; }
 /* brand logo lockup in bars */
 .brand-logo { height: 30px; width: auto; display: block; }
 @media (max-width:480px){ .brand-logo{ height: 26px; } }
