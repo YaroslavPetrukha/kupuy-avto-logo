@@ -228,6 +228,22 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
 .brand-logo { height: 42px; width: auto; display: block; }
 @media (max-width:480px){ .brand-logo{ height: 34px; } }
 
+/* primary navigation — shared; collapses behind a burger on mobile */
+.topbar-actions { display: flex; align-items: center; gap: .6rem; }
+.nav-toggle { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: .3rem; line-height: 0; }
+.nav-toggle svg { width: 26px; height: 26px; display: block; }
+@media (max-width: 820px){
+  .topbar .wrap { position: relative; }
+  .nav-toggle { display: inline-flex; }
+  .nav-links.open {
+    display: flex !important; position: absolute; top: 100%; left: 0; right: 0; z-index: 45;
+    flex-direction: column; background: var(--ink-900);
+    border-bottom: 1px solid var(--ink-600); box-shadow: var(--sh-lg);
+    padding: .4rem var(--gutter) .9rem;
+  }
+  .nav-links.open a { margin: 0 !important; padding: .85rem 0; border-bottom: 1px solid var(--ink-700); }
+}
+
 /* ============================================================
    INFINITE CAROUSEL (catalog — endless auto-scroll marquee)
    ============================================================ */
