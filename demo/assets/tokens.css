@@ -8,8 +8,8 @@
 
 :root {
   /* ---- Color: brand red (accent + CTA only) — client accent #E32636 ---- */
-  --red-500: #F2495A;   /* bright highlight */
-  --red-600: #E32636;   /* PRIMARY brand / CTA (client-approved accent) */
+  --red-500: #EE3442;   /* bright shade of brand red — borders / focus (not a pink) */
+  --red-600: #E32636;   /* PRIMARY brand / CTA + accent TEXT (client-approved accent) */
   --red-700: #B81E2B;   /* hover / pressed */
   --red-050: #FCE9EB;   /* tint backgrounds (light sections) */
 
@@ -248,7 +248,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
 .pop-card > * { position: relative; z-index: 1; }
 .pop-x { position: absolute; top: .6rem; right: .6rem; z-index: 2; width: 34px; height: 34px; border-radius: 50%; color: var(--gray-300); font-size: 1.4rem; line-height: 1; display: grid; place-items: center; }
 .pop-x:hover { background: var(--ink-700); color: #fff; }
-.pop-eyebrow { color: var(--red-500); }
+.pop-eyebrow { color: var(--red-600); }
 .pop h3 { font-family: var(--font-display); font-size: clamp(1.4rem,3vw,1.8rem); color: #fff; margin: .5rem 0 .5rem; }
 .pop p { color: var(--gray-300); margin-bottom: 1.1rem; }
 .pop .field { width: 100%; padding: .9rem 1rem; border-radius: var(--r-sm); border: 1.5px solid var(--ink-500); background: var(--ink-700); color: #fff; font: inherit; margin-bottom: .6rem; }
