@@ -91,10 +91,24 @@
     scroll-snap-type:x proximity; -webkit-mask-image:none; mask-image:none;
     padding-bottom:.75rem; cursor:grab; scrollbar-width:thin; scrollbar-color:var(--gray-300) transparent; }
   #catalog .carousel.dragging{ cursor:grabbing; scroll-snap-type:none; }
-  #catalog .carousel-track{ animation:none; width:max-content; }
+  #catalog .carousel-track{ animation:none; }
   #catalog .carousel-track > *{ scroll-snap-align:start; }
   #catalog .carousel::-webkit-scrollbar{ height:6px; }
   #catalog .carousel::-webkit-scrollbar-thumb{ background:var(--gray-300); border-radius:999px; }
+  /* fixed/vw basis (NOT %, which resolves indefinitely inside an overflow scroller and blows up the track);
+     ≥360px guarantees 3 cards overflow the ~1104px rail → a real peek of the next card → slider visibly scrolls */
+  #catalog .carousel-track > *{ flex:0 0 clamp(280px, 40vw, 400px); }
+  /* prev/next arrow buttons */
+  #catalog .cat-slider{ position:relative; }
+  #catalog .cat-nav{ position:absolute; top:42%; transform:translateY(-50%); z-index:6; width:46px; height:46px;
+    border-radius:50%; background:#fff; color:var(--ink-900); border:1px solid var(--hairline); box-shadow:var(--sh-md);
+    display:grid; place-items:center; font-size:1.7rem; line-height:0; padding-bottom:.18rem;
+    transition:background .2s var(--ease), color .2s var(--ease), opacity .2s var(--ease); }
+  #catalog .cat-nav:hover{ background:var(--red-600); color:#fff; border-color:var(--red-600); }
+  #catalog .cat-prev{ left:-8px; }
+  #catalog .cat-next{ right:-8px; }
+  #catalog .cat-nav[disabled]{ opacity:.3; pointer-events:none; }
+  @media (max-width:560px){ #catalog .cat-nav{ display:none; } }
 </style>
 </head>
 <body>
@@ -184,7 +198,9 @@
       <span class="chip badge-mono"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4.5V9h-4.5"/></svg> Добірка оновлюється щотижня</span>
     </div>
 
-    <div class="carousel" style="margin-top:2rem;" aria-label="Карусель авто тижня"><div class="carousel-track" id="catTrack">
+    <div class="cat-slider" style="margin-top:2rem;">
+      <button class="cat-nav cat-prev" type="button" aria-label="Попередні авто" disabled>‹</button>
+      <div class="carousel" aria-label="Карусель авто тижня"><div class="carousel-track" id="catTrack">
       <!-- card 1: Audi A5 2012 quattro (white, verified clean) — приклад VDP -->
       <a class="card carcard" href="car.html">
         <div class="img"><span class="chip chip-red tag"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 4 4.6 4 8.2A4 4 0 0 1 8 12c0-1.2.6-2.4.6-2.4C7 10.6 6 12.5 6 14.5a6 6 0 0 0 12 0c0-5.2-6-7.6-6-11.5z"/></svg> Приклад</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-1.jpg" alt="Audi A5 2012 quattro" loading="lazy"></div>
@@ -230,7 +246,9 @@
           </div>
         </div>
       </a>
-    </div></div>
+      </div></div>
+      <button class="cat-nav cat-next" type="button" aria-label="Наступні авто">›</button>
+    </div>
   </div>
 </section>
 
@@ -403,6 +421,21 @@
     rail.addEventListener('pointercancel',endDrag);
     // a drag must not also fire the card's link navigation
     rail.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); } }, true);
+
+    // prev/next arrow buttons — scroll by ~one card and reflect start/end state
+    var prevBtn=document.querySelector('#catalog .cat-prev'), nextBtn=document.querySelector('#catalog .cat-next');
+    function catStep(){ var c=rail.querySelector('.carcard'); return c ? c.getBoundingClientRect().width + 20 : rail.clientWidth*0.8; }
+    function catUpd(){
+      if(!prevBtn||!nextBtn) return;
+      var max=rail.scrollWidth - rail.clientWidth - 2;
+      prevBtn.disabled = rail.scrollLeft <= 2;
+      nextBtn.disabled = rail.scrollLeft >= max;
+    }
+    if(prevBtn) prevBtn.addEventListener('click',function(){ rail.scrollBy({left:-catStep(),behavior:'smooth'}); });
+    if(nextBtn) nextBtn.addEventListener('click',function(){ rail.scrollBy({left:catStep(),behavior:'smooth'}); });
+    rail.addEventListener('scroll',catUpd,{passive:true});
+    window.addEventListener('resize',catUpd);
+    catUpd();
   }
 
   // popups
