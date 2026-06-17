@@ -83,6 +83,18 @@
   .faq details{ background:#fff; border:1px solid var(--hairline); border-radius:var(--r-md); padding:1rem 1.15rem; margin-bottom:.7rem; }
   .faq summary{ font-weight:700; cursor:pointer; }
   .icn{ width:1em; height:1em; display:inline-block; vertical-align:-0.14em; flex:none; }
+
+  /* TOP-WEEK carousel → user-scrollable rail. The shared .carousel marquee in tokens.css
+     auto-scrolls inside overflow:hidden and cannot be grabbed; here we make it a real
+     scroll container (swipe / drag / trackpad) and drop the edge mask that clipped cards. */
+  #catalog .carousel{ overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity; -webkit-mask-image:none; mask-image:none;
+    padding-bottom:.75rem; cursor:grab; scrollbar-width:thin; scrollbar-color:var(--gray-300) transparent; }
+  #catalog .carousel.dragging{ cursor:grabbing; scroll-snap-type:none; }
+  #catalog .carousel-track{ animation:none; width:max-content; }
+  #catalog .carousel-track > *{ scroll-snap-align:start; }
+  #catalog .carousel::-webkit-scrollbar{ height:6px; }
+  #catalog .carousel::-webkit-scrollbar-thumb{ background:var(--gray-300); border-radius:999px; }
 </style>
 </head>
 <body>
@@ -311,8 +323,8 @@
 <!-- CTA BAND -->
 <section class="section cta-band">
   <div class="wrap">
-    <h2 style="margin-bottom:.75rem;">Готові пересісти на своє авто?</h2>
-    <p style="max-width:48ch; margin:0 auto 1.75rem; opacity:.92;">Лишіть заявку — за 15 хвилин підберемо авто й покажемо, скільки воно виходить на місяць.</p>
+    <h2 style="margin-bottom:.75rem;">Готові пересісти на власне авто?</h2>
+    <p style="max-width:48ch; margin:0 auto 1.75rem; opacity:.92;">Залиште заявку — і вже за 15 хвилин ми підберемо варіанти та покажемо точний щомісячний платіж без прихованих комісій.</p>
     <div class="flex gap-3" style="justify-content:center; flex-wrap:wrap;">
       <a href="#catalog" class="btn btn-lg" style="background:#fff; color:var(--red-700);">Обрати авто</a>
       <a href="tel:+380000000000" class="btn btn-lg btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.5);"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg> Подзвонити</a>
@@ -338,7 +350,7 @@
       </div>
     </div>
     <div class="chev-strip" style="margin:2rem 0 1.5rem; opacity:.5;"></div>
-    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Допомагаємо підібрати авто та оформити попереднє погодження. Остаточні умови визначає банк-партнер. Не є публічною офертою.</p>
+    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Сервіс підбору авто та сприяння у фінансуванні. Усі розрахунки є орієнтовними, остаточні умови ухвалює банк-партнер. Не є публічною офертою.</p>
   </div>
 </footer>
 
@@ -372,11 +384,26 @@
 
 <script>
 (function(){
-  // infinite carousel — clone items for a seamless loop
-  var track=document.getElementById('catTrack');
-  if(track){ Array.prototype.slice.call(track.children).forEach(function(n){
-    var c=n.cloneNode(true); c.setAttribute('aria-hidden','true'); c.tabIndex=-1; track.appendChild(c);
-  }); }
+  // TOP-WEEK carousel: native horizontal scroll + drag-to-scroll.
+  // (Replaces the old auto-marquee, which lived inside overflow:hidden and could not be scrolled.)
+  var rail=document.querySelector('#catalog .carousel');
+  if(rail){
+    var down=false, sx=0, sl=0, moved=false;
+    rail.addEventListener('pointerdown',function(e){
+      down=true; moved=false; sx=e.clientX; sl=rail.scrollLeft; rail.classList.add('dragging');
+      if(rail.setPointerCapture){ try{ rail.setPointerCapture(e.pointerId); }catch(_){} }
+    });
+    rail.addEventListener('pointermove',function(e){
+      if(!down) return;
+      var dx=e.clientX-sx; if(Math.abs(dx)>4) moved=true;
+      rail.scrollLeft=sl-dx;
+    });
+    function endDrag(){ down=false; rail.classList.remove('dragging'); }
+    rail.addEventListener('pointerup',endDrag);
+    rail.addEventListener('pointercancel',endDrag);
+    // a drag must not also fire the card's link navigation
+    rail.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); } }, true);
+  }
 
   // popups
   function openPop(p){ if(p) p.classList.add('open'); }
