@@ -409,7 +409,6 @@
     var down=false, sx=0, sl=0, moved=false;
     rail.addEventListener('pointerdown',function(e){
       down=true; moved=false; sx=e.clientX; sl=rail.scrollLeft; rail.classList.add('dragging');
-      if(rail.setPointerCapture){ try{ rail.setPointerCapture(e.pointerId); }catch(_){} }
     });
     rail.addEventListener('pointermove',function(e){
       if(!down) return;
