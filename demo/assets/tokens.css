@@ -30,8 +30,7 @@
   --white:    #FFFFFF;
 
   /* ---- Color: trust / status ---- */
-  --teal-500: #0E9F8E;  /* approved / success — balances red */
-  --teal-050: #E6F5F3;
+  /* accent — ТІЛЬКИ червоний; бірюзовий прибрано за вимогою бренду */
   --amber-500:#E8A317;  /* warning / attention */
 
   /* ---- Semantic ---- */
@@ -179,7 +178,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.02; letter-spacin
   background: var(--gray-100); color: var(--gray-600);
 }
 .chip-red { background: var(--red-050); color: var(--red-700); }
-.chip-teal { background: var(--teal-050); color: var(--teal-500); }
+.chip-ok { background: rgba(128,128,128,.14); color: inherit; border: 1px solid rgba(128,128,128,.30); }
 .badge-mono { font-family: var(--font-mono); font-weight: 500; }
 
 /* ============================================================

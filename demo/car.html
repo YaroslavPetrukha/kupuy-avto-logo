@@ -44,7 +44,7 @@
   .pay-label{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--gray-400); text-transform:uppercase; letter-spacing:.12em; }
   .price { font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,4vw,2.6rem); line-height:1; margin-top:.35rem; }
   .price small { font-family:var(--font-mono); font-weight:500; font-size:.85rem; color:var(--gray-400); }
-  .bonus-row { display:flex; gap:.6rem; align-items:center; margin-top:1rem; padding:.85rem 1rem; background:var(--ink-800); border-radius:var(--r-sm); border-left:4px solid var(--teal-500); }
+  .bonus-row { display:flex; gap:.6rem; align-items:center; margin-top:1rem; padding:.85rem 1rem; background:var(--ink-800); border-radius:var(--r-sm); border-left:4px solid var(--red-500); }
 
   .specstrip { background:var(--ink-900); }
   .specstrip .wrap { display:grid; grid-template-columns:repeat(5,1fr); gap:0; }
@@ -64,7 +64,7 @@
   .hist { border:1px solid var(--hairline); border-radius:var(--r-md); overflow:hidden; }
   .hist .row { display:flex; justify-content:space-between; gap:1rem; padding:.9rem 1.1rem; border-bottom:1px solid var(--hairline); align-items:center; }
   .hist .row:last-child{ border-bottom:0; }
-  .hist .row .ok { color:var(--teal-500); font-weight:700; }
+  .hist .row .ok { color:var(--ink-800); font-weight:700; }
 
   .spectable { width:100%; border-collapse:collapse; }
   .spectable td { padding:.8rem 0; border-bottom:1px solid var(--hairline); font-size:var(--t-body); }
@@ -200,7 +200,7 @@
   <div class="wrap">
     <div class="flex gap-2" style="margin-bottom:1rem; flex-wrap:wrap;">
       <span class="chip chip-red"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Без першого внеску</span>
-      <span class="chip chip-teal">✓ Історію перевірено</span>
+      <span class="chip chip-ok">✓ Історію перевірено</span>
       <span class="chip" style="background:var(--ink-700);color:#CBD2D9;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg> м. Львів · у наявності зараз</span>
       <span class="chip" style="background:var(--ink-700);color:#E8A317;">★ 4.9 · 320+ відгуків</span>
     </div>
@@ -230,7 +230,7 @@
         <div class="price">9 500 <small>грн/міс</small></div>
         <div class="bonus-row">
           <span style="flex:none;font-size:1.2rem;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></span>
-          <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Утримання ≈ <b style="color:#fff;">2 100 грн/міс</b> — у середньому по ринку. <a href="#upkeep" style="color:var(--teal-500);">Детальніше ↓</a></span>
+          <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Утримання ≈ <b style="color:#fff;">2 100 грн/міс</b> — у середньому по ринку. <a href="#upkeep" style="color:#fff;text-decoration:underline;">Детальніше ↓</a></span>
         </div>
         <div class="stack" style="margin-top:1.25rem;">
           <a href="#form" class="btn btn-primary btn-lg btn-block">Дізнатись мій платіж →</a>
@@ -301,10 +301,10 @@
     <h2 class="sh chev-rule">Підберемо умови саме для вас</h2>
     <p class="lead-sub" style="max-width:62ch;">Працюєте як ФОП чи на фрілансі? Ми знайдемо зручний варіант фінансування без першого внеску — з комфортним щомісячним платежем.</p>
     <div class="flex gap-2" style="flex-wrap:wrap;">
-      <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 0 ₴ першого внеску</span>
-      <span class="chip chip-teal">✓ Для бізнесу та ІТ</span>
-      <span class="chip chip-teal">✓ Високий шанс схвалення</span>
-      <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовний розрахунок</span>
+      <span class="chip chip-ok" style="background:var(--red-600);color:#fff;border-color:var(--red-600);"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 0 ₴ першого внеску</span>
+      <span class="chip chip-ok">✓ Для бізнесу та ІТ</span>
+      <span class="chip chip-ok">✓ Високий шанс схвалення</span>
+      <span class="chip chip-ok"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовний розрахунок</span>
     </div>
   </div>
 </section>
@@ -374,9 +374,9 @@
     </div>
     <div class="flex between items-center" style="flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
       <div class="flex gap-2" style="flex-wrap:wrap;">
-        <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.7-3.2 7.6-7.5 8.7-4.3-1.1-7.5-4-7.5-8.7V5.8z"/></svg> Юридична чистота</span>
-        <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg> Без прихованих платежів</span>
-        <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Авто готове до виїзду</span>
+        <span class="chip chip-ok"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.7-3.2 7.6-7.5 8.7-4.3-1.1-7.5-4-7.5-8.7V5.8z"/></svg> Юридична чистота</span>
+        <span class="chip chip-ok"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg> Без прихованих платежів</span>
+        <span class="chip chip-ok"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Авто готове до виїзду</span>
       </div>
       <a href="#form" class="btn btn-primary">Обрати авто без внеску</a>
     </div>
@@ -404,7 +404,7 @@
             <span style="color:var(--amber-500); letter-spacing:.08em;">★★★★★</span>
             <span class="mono" style="font-size:var(--t-xs); color:var(--gray-400);">4.9 — 320+ клієнтів уже за кермом</span>
           </div>
-          <p class="mono" style="font-size:var(--t-xs); color:var(--teal-500); margin-top:1rem; text-align:center;">
+          <p class="mono" style="font-size:var(--t-xs); color:var(--gray-500); margin-top:1rem; text-align:center;">
             <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовно, ні до чого не зобов'язує.
           </p>
           <p class="mono" style="font-size:var(--t-xs); color:var(--gray-500); margin-top:.6rem; text-align:center;">Натискаючи, ви погоджуєтесь з обробкою даних.</p>

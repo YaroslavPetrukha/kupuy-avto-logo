@@ -52,12 +52,22 @@
   .carcard h3{ font-family:var(--font-body); font-weight:800; font-size:1.15rem; }
   .carcard .pay{ font-family:var(--font-display); font-weight:800; font-size:1.35rem; }
   .carcard .pay small{ font-family:var(--font-mono); font-weight:500; font-size:.7rem; color:var(--text-muted); }
-  .carcard .bonus{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--teal-500); margin-top:.15rem; }
+  .carcard .bonus{ font-family:var(--font-mono); font-size:var(--t-xs); color:var(--gray-500); margin-top:.15rem; }
   .carcard .specs{ display:flex; gap:.8rem; flex-wrap:wrap; margin:.7rem 0 1rem; }
   .carcard .specs span{ font-size:var(--t-xs); color:var(--text-muted); }
 
   .mil{ background:linear-gradient(120deg,var(--ink-900),var(--ink-700)); color:#fff; border-radius:var(--r-lg); padding:clamp(1.75rem,4vw,3rem); position:relative; overflow:hidden; }
   .mil .in{ position:relative; z-index:1; max-width:62ch; }
+  .mil .in.approve-in{ max-width:none; }
+  .approve-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(1.5rem,3vw,2.75rem); align-items:center; }
+  .approve-main{ max-width:60ch; }
+  .proof-panel{ background:rgba(255,255,255,.05); border:1px solid var(--ink-600); border-radius:var(--r-md); padding:clamp(1.25rem,2.5vw,1.75rem); }
+  .proof-head{ display:flex; align-items:center; gap:.55rem; font-family:var(--font-body); font-weight:800; font-size:1.05rem; line-height:1.25; color:#fff; margin-bottom:1.1rem; }
+  .proof-head svg{ flex:none; width:22px; height:22px; color:#fff; }
+  .proof-list{ list-style:none; margin:0; padding:0; display:grid; gap:.95rem; }
+  .proof-list li{ display:flex; align-items:flex-start; gap:.6rem; color:var(--gray-300); font-size:var(--t-sm); line-height:1.4; }
+  .proof-list svg{ flex:none; width:18px; height:18px; margin-top:.1rem; color:#fff; }
+  @media (max-width:760px){ .approve-grid{ grid-template-columns:1fr; gap:1.5rem; } }
 
   .why{ grid-template-columns:repeat(4,1fr); }
   @media (max-width:900px){ .why{ grid-template-columns:repeat(2,1fr); } }
@@ -159,7 +169,7 @@
     <span class="eyebrow rise">Львів та вся Україна</span>
     <h1 class="rise" style="margin:1rem 0 1.25rem;">Без першого внеску —<br><span class="accent">обирай авто.</span></h1>
     <p class="rise muted" style="color:var(--gray-300); font-size:var(--t-lead); max-width:48ch;">
-      Легко, швидко, всього за <b style="color:#fff;">15 хвилин</b> — і ви на крок ближче до свого авто.
+      Обирайте машину з каталогу, а ми погодимо фінансування за <b style="color:#fff;">15 хвилин</b>. Жодних прихованих комісій — усе прозоро та під ключ.
     </p>
     <div class="flex gap-3 rise" style="margin-top:2rem; flex-wrap:wrap;">
       <a href="#catalog" class="btn btn-primary btn-lg">Обрати авто →</a>
@@ -180,7 +190,7 @@
   <div class="wrap">
     <div class="stat"><b>0 ₴</b><span>перший внесок</span></div>
     <div class="stat"><b>15 хв</b><span>швидке рішення</span></div>
-    <div class="stat"><b>Без сюрпризів</b><span>платіж видно одразу</span></div>
+    <div class="stat"><b>100%</b><span>платіж видно одразу</span></div>
     <div class="stat" style="border-right:0;"><b>Під ключ</b><span>сів і поїхав</span></div>
   </div>
 </div>
@@ -205,7 +215,7 @@
       <a class="card carcard" href="car.html">
         <div class="img"><span class="chip chip-red tag"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 4 4.6 4 8.2A4 4 0 0 1 8 12c0-1.2.6-2.4.6-2.4C7 10.6 6 12.5 6 14.5a6 6 0 0 0 12 0c0-5.2-6-7.6-6-11.5z"/></svg> Приклад</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/05/audi-a5-2012-2-0tfsi-at-quattro-prestige-042764-vin-1.jpg" alt="Audi A5 2012 quattro" loading="lazy"></div>
         <div class="body">
-          <div class="flex between items-center"><h3>Audi A5 2012 quattro</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="flex between items-center"><h3>Audi A5 2012 quattro</h3><span class="chip chip-ok">Історія ✓</span></div>
           <div class="specs"><span>2.0 TFSI</span><span>· 202 000 км</span><span>· Автомат</span><span>· quattro</span></div>
           <div class="flex between items-center">
             <div>
@@ -220,7 +230,7 @@
       <a class="card carcard" href="car.html">
         <div class="img"><span class="chip tag" style="background:rgba(20,23,26,.7);color:#fff;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M3 21h12"/><rect x="6.5" y="6.5" width="5" height="4" rx="0.6"/><path d="M14 8.5l3 2.2V17a2 2 0 0 0 4 0V9.5L18 6.5"/></svg> ГБО · економно</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/jeep-renegade-2017-2-4-fwd-at-sport-f29689-vin-1.jpg" alt="Jeep Renegade 2017 Sport" loading="lazy"></div>
         <div class="body">
-          <div class="flex between items-center"><h3>Jeep Renegade 2017</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="flex between items-center"><h3>Jeep Renegade 2017</h3><span class="chip chip-ok">Історія ✓</span></div>
           <div class="specs"><span>2.4</span><span>· 173 000 км</span><span>· Автомат</span><span>· ГБО</span></div>
           <div class="flex between items-center">
             <div>
@@ -235,7 +245,7 @@
       <a class="card carcard" href="car.html">
         <div class="img"><span class="chip tag" style="background:rgba(20,23,26,.7);color:#fff;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg> у наявності</span><img src="https://www.prebid-auto.com.ua/wp-content/uploads/2026/06/ford-escape-2017-1-5at-awd-sel-a67683-vin-1.jpg" alt="Ford Escape 2017 SEL" loading="lazy"></div>
         <div class="body">
-          <div class="flex between items-center"><h3>Ford Escape 2017 SEL</h3><span class="chip chip-teal">Історія ✓</span></div>
+          <div class="flex between items-center"><h3>Ford Escape 2017 SEL</h3><span class="chip chip-ok">Історія ✓</span></div>
           <div class="specs"><span>1.5 EcoBoost</span><span>· 116 000 км</span><span>· Автомат</span><span>· AWD</span></div>
           <div class="flex between items-center">
             <div>
@@ -257,17 +267,29 @@
   <div class="wrap">
     <div class="mil">
       <div class="bg-pattern soft" aria-hidden="true"></div>
-      <div class="in">
-        <span class="chip chip-red" style="margin-bottom:1rem;">✓ Схвалення</span>
-        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Підберемо умови саме для вас</h2>
-        <p style="color:var(--gray-300); margin-bottom:1.25rem;">Працюєте як ФОП чи на фрілансі? Ми знайдемо зручний варіант фінансування <b style="color:#fff;">без першого внеску</b>. Залиште контакти — за 15 хвилин покажемо, що можемо запропонувати.</p>
-        <div class="flex gap-2" style="flex-wrap:wrap; margin-bottom:1.5rem;">
-          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 0 ₴ першого внеску</span>
-          <span class="chip chip-teal">✓ Для бізнесу та ІТ</span>
-          <span class="chip chip-teal">✓ Високий шанс схвалення</span>
-          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовний розрахунок</span>
+      <div class="in approve-in">
+        <div class="approve-grid">
+          <div class="approve-main">
+            <span class="chip chip-red" style="margin-bottom:1rem;">✓ Схвалення</span>
+            <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Підберемо умови саме для вас</h2>
+            <p style="color:var(--gray-300); margin-bottom:1.25rem;">Працюєте як ФОП чи на фрілансі? Ми знайдемо зручний варіант фінансування <b style="color:#fff;">без першого внеску</b>. Залиште контакти — за 15 хвилин покажемо, що можемо запропонувати.</p>
+            <div class="flex gap-2" style="flex-wrap:wrap; margin-bottom:1.5rem;">
+              <span class="chip chip-ok" style="background:var(--red-600);color:#fff;border-color:var(--red-600);"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 0 ₴ першого внеску</span>
+              <span class="chip chip-ok">✓ Для бізнесу та ІТ</span>
+              <span class="chip chip-ok">✓ Високий шанс схвалення</span>
+              <span class="chip chip-ok"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовний розрахунок</span>
+            </div>
+            <a href="#catalog" class="btn btn-primary btn-lg">Підібрати авто →</a>
+          </div>
+          <aside class="proof-panel">
+            <div class="proof-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Заявка ні до чого не зобов'язує</div>
+            <ul class="proof-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.4 2"/><path d="M9.2 2.5h5.6"/></svg> Попереднє рішення — уже за 15 хвилин</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Лише ім'я та телефон, без стосів паперів</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M3 20a9 9 0 0 1 18 0"/><circle cx="12" cy="7" r="4"/></svg> Умови підбираємо особисто під вас</li>
+            </ul>
+          </aside>
         </div>
-        <a href="#catalog" class="btn btn-primary btn-lg">Підібрати авто →</a>
       </div>
     </div>
   </div>
