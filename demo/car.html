@@ -6,6 +6,8 @@
 <title>Audi A5 2012 2.0 TFSI quattro — КУПУЙ АВТО</title>
 <link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/tokens.css">
+<script>try{if(sessionStorage.getItem('kaSplash'))document.documentElement.className+=' kap-seen';}catch(e){}</script>
+<link rel="stylesheet" href="assets/preloader.css">
 <style>
   .topbar { position:sticky; top:0; z-index:40; background:rgba(27,9,12,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
   .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
@@ -133,7 +135,8 @@
   .spin-top .ttl{ font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
   .spin-close{ background:none; border:0; color:#fff; font-size:1.7rem; line-height:1; cursor:pointer; padding:.2rem .5rem; }
   .spin-stage{ position:relative; aspect-ratio:16/10; background:#000; border-radius:var(--r-md); overflow:hidden; cursor:ew-resize; user-select:none; touch-action:pan-y; }
-  .spin-stage img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; transition:opacity .45s var(--ease); }
+  /* instant frame swap — a cross-fade here makes the spin read as a slideshow, not rotation */
+  .spin-stage img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; }
   .spin-stage img.on{ opacity:1; }
   /* main gallery: smooth fade when switching photos via thumbs */
   .ph-main img{ transition:opacity .45s var(--ease); }
@@ -151,6 +154,28 @@
 </head>
 <body>
 
+<!-- ЛОГО-ПРЕЛОАДЕР «Прибуття по дорозі» · assets/preloader.css + assets/preloader.js -->
+<div id="kaPreloader" role="status" aria-label="Купуй Авто — завантаження">
+  <div class="kap-stage">
+    <svg viewBox="0 0 553.99 170.57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon class="kap-tri" fill="#e32737" points="278.11 0 229.78 54.48 326.43 54.48"/>
+      <g class="kap-letters" fill="#fff">
+        <path d="M22.44,128.3h-7.04v20.95H0v-54.73h15.4v21.27h7.43l13.06-21.27h16.26l-17.12,26.43,17.28,28.3h-17.44l-12.43-20.95Z"/>
+        <path d="M110.79,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M167.31,94.53v54.73h-15.32v-42.46h-20.8v42.46h-15.25v-54.73h51.37Z"/>
+        <path d="M231.26,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M236.42,94.53h15.25v32.13l22.6-32.13h14.54v54.73h-15.25v-32.06l-22.52,32.06h-14.62v-54.73ZM246.5,78.5h10.4c.08,3.6,1.72,5.39,5.63,5.39s5.71-1.8,5.79-5.39h10.4c0,8.21-4.85,12.74-16.18,12.74s-16.03-4.53-16.03-12.74Z"/>
+        <path d="M361.51,138.62h-23.14l-4.3,10.63h-15.79l24.16-54.73h15.25l24.24,54.73h-16.11l-4.3-10.63ZM356.97,127.21l-7.04-17.51-7.04,17.51h14.07Z"/>
+        <path d="M438.2,133.62c0,9.62-7.66,15.64-21.74,15.64h-28.07v-54.73h26.58c13.06,0,20.72,5.16,20.72,14.23,0,5.4-2.74,9.54-7.43,11.88,6.33,2.03,9.93,6.41,9.93,12.98ZM403.64,116.42h9.85c4.38,0,6.57-1.8,6.57-5.39s-2.19-5.39-6.57-5.39h-9.85v10.79ZM422.56,132.45c0-3.75-2.27-5.55-6.72-5.55h-12.2v11.26h12.2c4.46,0,6.72-1.96,6.72-5.71Z"/>
+        <path d="M490.11,106.8h-16.73v42.46h-15.25v-42.46h-16.81v-12.28h48.79v12.28Z"/>
+        <path d="M493.16,121.89c0-16.42,12.9-28.46,30.41-28.46s30.41,12.04,30.41,28.46-12.9,28.46-30.41,28.46-30.41-12.04-30.41-28.46ZM538.35,121.89c0-9.46-6.49-15.64-14.78-15.64s-14.78,6.18-14.78,15.64,6.49,15.64,14.78,15.64,14.78-6.18,14.78-15.64Z"/>
+      </g>
+      <rect class="kap-road" fill="#e32737" y="166.57" width="553.98" height="4"/>
+    </svg>
+  </div>
+</div>
+
+
 <!-- ===== TOP BAR ===== -->
 <div class="topbar">
   <div class="wrap">
@@ -164,7 +189,7 @@
     </div>
     <div class="topbar-actions">
       <button class="nav-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <a href="#form" class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1.1rem;">Попереднє погодження</a>
+      <a href="#form" class="btn btn-primary" style="--pad-y:.6rem;--pad-x:1.1rem;">Дізнатись платіж</a>
     </div>
   </div>
 </div>
@@ -201,8 +226,8 @@
 
       <!-- buybox: БЕЗ фінальної ціни — акцент на платіж/міс + бонус -->
       <aside class="buybox">
-        <div class="pay-label">Платіж щомісяця</div>
-        <div class="price">≈ 9 500 <small>грн / місяць</small></div>
+        <div class="pay-label">Орієнтовний платіж</div>
+        <div class="price">9 500 <small>грн/міс</small></div>
         <div class="bonus-row">
           <span style="flex:none;font-size:1.2rem;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></span>
           <span style="font-size:var(--t-sm); color:var(--gray-200); line-height:1.4;">Утримання ≈ <b style="color:#fff;">2 100 грн/міс</b> — у середньому по ринку. <a href="#upkeep" style="color:var(--teal-500);">Детальніше ↓</a></span>
@@ -214,9 +239,9 @@
         <div class="flex gap-3" style="margin-top:1rem; justify-content:center; flex-wrap:wrap;">
           <span class="mono" style="font-size:var(--t-xs);color:var(--gray-400);"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.4 2"/><path d="M9.2 2.5h5.6"/></svg> попереднє погодження за 15 хв</span>
         </div>
-        <div style="margin-top:.9rem; font-size:var(--t-xs); color:var(--gray-300); line-height:1.5;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 18h5.6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.7.6 1.1 1.3 1.2 2.4h5.2c.1-1.1.5-1.8 1.2-2.4A6 6 0 0 0 12 3z"/></svg> Показуємо платіж на місяць, а не ціну — бо саме його ви реально платите.</div>
+        <div style="margin-top:.9rem; font-size:var(--t-xs); color:var(--gray-300); line-height:1.5;"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 18h5.6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.7.6 1.1 1.3 1.2 2.4h5.2c.1-1.1.5-1.8 1.2-2.4A6 6 0 0 0 12 3z"/></svg> Без абстрактних цифр: фіксуємо ваш щомісячний платіж без прихованих переплат.</div>
         <div style="margin-top:.9rem; padding-top:.9rem; border-top:1px solid var(--ink-600);">
-          <span style="font-size:var(--t-xs); color:var(--gray-400); line-height:1.5; display:block;">Платіж щомісяця — орієнтовний, до попереднього погодження.</span>
+          <span style="font-size:var(--t-xs); color:var(--gray-400); line-height:1.5; display:block;">* Остаточний розмір платежу фіксується після попереднього погодження банку.</span>
         </div>
       </aside>
     </div>
@@ -289,7 +314,7 @@
   <div class="wrap">
     <span class="eyebrow">Прозорість</span>
     <h2 class="sh chev-rule">VIN, історія та технічний стан</h2>
-    <p class="lead-sub">Показуємо все відкрито: VIN, історію та юридичну чистоту — щоб ви були впевнені: це не «конструктор» після серйозної аварії і авто не перебуває в заставі.</p>
+    <p class="lead-sub">Показуємо все як є, включно з юридичною чистотою. Жодних таємниць: ви будете на 100% впевнені, що це не «конструктор» після серйозної ДТП, а авто не перебуває в заставі.</p>
 
     <div class="twocol">
       <div>
@@ -304,8 +329,8 @@
         <a href="#" class="btn btn-ghost" style="margin-top:1rem;">↓ Завантажити повний звіт історії (PDF)</a>
       </div>
       <div class="grid trust-grid" style="grid-template-columns:1fr; gap:1rem;">
-        <div class="card tcard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6.5a4 4 0 0 0-5.4 5L4 17l3 3 5.5-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.5-.1-.1-2.5z"/></svg></div><b>Передпродажна інспекція</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">142 пункти перевірки. Власний чек-ліст стану — додатковий шар довіри понад історію авто.</p></div>
-        <div class="card tcard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></div><b>Скільки коштує тримати</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">Повний розклад витрат на місяць — у блоці нижче. <a href="#upkeep" style="color:var(--red-600);font-weight:700;">Подивитись ↓</a></p></div>
+        <div class="card tcard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6.5a4 4 0 0 0-5.4 5L4 17l3 3 5.5-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.5-.1-.1-2.5z"/></svg></div><b>Передпродажна інспекція</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">142 пункти перевірки за власним чек-листом. Ми не покладаємося лише на історію авто з реєстрів, а даємо вам 100% впевненість у його надійності.</p></div>
+        <div class="card tcard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></div><b>Скільки коштує утримувати авто</b><p class="muted" style="font-size:var(--t-sm);margin-top:.3rem;">Прозора деталізація супутніх витрат на місяць. <a href="#upkeep" style="color:var(--red-600);font-weight:700;">Переглянути витрати ↓</a></p></div>
       </div>
     </div>
   </div>
@@ -315,21 +340,21 @@
 <section class="section" id="upkeep" style="background:var(--gray-100);">
   <div class="wrap">
     <span class="eyebrow"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg> Витрати на утримання · орієнтовно по ринку</span>
-    <h2 class="sh chev-rule">Скільки коштує тримати це авто</h2>
-    <p class="lead-sub">Багатьох лякає не сама покупка, а непередбачувані витрати після неї. Ось орієнтовні витрати на утримання такого авто — середні по ринку, щоб ви бачили реальну картину наперед.</p>
+    <h2 class="sh chev-rule">Скільки коштує утримання авто</h2>
+    <p class="lead-sub">Часто лякає не купівля машини, а подальші витрати на неї. Ми розрахували середні ринкові ціни, щоб ви заздалегідь розуміли реальну вартість володіння без неприємних сюрпризів.</p>
     <div class="upkeep">
-      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6.5a4 4 0 0 0-5.4 5L4 17l3 3 5.5-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.5-.1-.1-2.5z"/></svg></div><div class="amt">≈ 1 300 грн</div><div class="lbl">ТО та сервіс / міс</div></div>
-      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></div><div class="amt">≈ 350 грн</div><div class="lbl">Шини (амортизація) / міс</div></div>
-      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.7-3.2 7.6-7.5 8.7-4.3-1.1-7.5-4-7.5-8.7V5.8z"/></svg></div><div class="amt">≈ 200 грн</div><div class="lbl">Страхування ОСЦПВ / міс</div></div>
-      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s5.5 5.6 5.5 9.5a5.5 5.5 0 0 1-11 0c0-3.9 5.5-9.5 5.5-9.5z"/></svg></div><div class="amt">≈ 250 грн</div><div class="lbl">Розхідні матеріали / міс</div></div>
+      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6.5a4 4 0 0 0-5.4 5L4 17l3 3 5.5-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.5-.1-.1-2.5z"/></svg></div><div class="amt">1 300 грн/міс</div><div class="lbl">ТО та сервіс</div></div>
+      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></div><div class="amt">350 грн/міс</div><div class="lbl">Амортизація шин</div></div>
+      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.7-3.2 7.6-7.5 8.7-4.3-1.1-7.5-4-7.5-8.7V5.8z"/></svg></div><div class="amt">200 грн/міс</div><div class="lbl">Страхування ОСЦПВ</div></div>
+      <div class="ucard"><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5s5.5 5.6 5.5 9.5a5.5 5.5 0 0 1-11 0c0-3.9 5.5-9.5 5.5-9.5z"/></svg></div><div class="amt">250 грн/міс</div><div class="lbl">Розхідні матеріали</div></div>
     </div>
     <div class="usum">
       <div>
         <div class="mono" style="font-size:var(--t-xs);color:var(--gray-400);letter-spacing:.12em;text-transform:uppercase;">Обслуговування (без пального)</div>
-        <div class="big">≈ <span>2 100 грн</span> / місяць</div>
+        <div class="big"><span>2 100 грн</span> / міс</div>
       </div>
       <div style="max-width:42ch;color:var(--gray-300);font-size:var(--t-sm);">
-        Передбачувано й без сюрпризів. Окремо — пальне: <b style="color:#fff;">≈ 6 900 грн/міс</b> за пробігу ~1 000 км (2.0 TFSI, ~9 л/100 км × ~76 грн/л).
+        Без сюрпризів. Окремо пальне: <b style="color:#fff;">~6 900 грн/міс</b> за умови пробігу ~1 000 км/міс (розрахунок для 2.0 TFSI: ~9 л/100 км × ~76 грн/л).
       </div>
     </div>
     <p class="mono" style="font-size:var(--t-xs); color:var(--text-muted); margin-top:1rem;">Орієнтовні середні витрати для цього авто в Україні (червень 2026). Реальні цифри залежать від пробігу, стилю їзди та тарифів страхування.</p>
@@ -343,9 +368,9 @@
     <h2 class="sh chev-rule">Від контактів — до ключів</h2>
     <p class="lead-sub">Без калькуляторів і зайвих документів. Усе просто:</p>
     <div class="grid flow" style="margin-bottom:1.5rem;">
-      <div class="card step"><div class="n">01</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Залиште контакти — 15 хв</h3><p class="muted">Лишаєте ім'я, телефон і кілька даних. Готуємо попереднє погодження.</p></div>
-      <div class="card step"><div class="n">02</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Погодження банку-партнера</h3><p class="muted">Щойно приходить «так» — представник банку сам зв'язується з вами та пояснює подальший план дій.</p></div>
-      <div class="card step"><div class="n">03</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Підписання — і ви за кермом</h3><p class="muted">Підписуєте документи в банку — а вас уже чекає авто з готовим договором. Зазвичай забираєте <b>того ж дня</b>.</p></div>
+      <div class="card step"><div class="n">01</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Швидка заявка — 15 хв</h3><p class="muted">Лише ім'я та телефон. Цього достатньо, щоб ми підготували попереднє погодження фінансування.</p></div>
+      <div class="card step"><div class="n">02</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Після схвалення банк узгоджує деталі, а наш менеджер залишається на зв'язку та супроводжує вас до самої видачі ключів.</p></div>
+      <div class="card step"><div class="n">03</div><h3 style="margin:.8rem 0 .3rem; font-family:var(--font-body); font-weight:800;">Підпис — і ви за кермом</h3><p class="muted">Один підпис у банку, і ключі ваші. Авто вже підготовлене, тому виїжджаєте на ньому <b>в день угоди</b>.</p></div>
     </div>
     <div class="flex between items-center" style="flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
       <div class="flex gap-2" style="flex-wrap:wrap;">
@@ -353,10 +378,10 @@
         <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg> Без прихованих платежів</span>
         <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Авто готове до виїзду</span>
       </div>
-      <a href="#form" class="btn btn-primary">Без першого внеску — обрати це авто →</a>
+      <a href="#form" class="btn btn-primary">Обрати авто без внеску</a>
     </div>
     <div class="disclaimer">
-      «Купуй Авто» допомагає підібрати авто та оформити попереднє погодження. Остаточні умови та щомісячний платіж визначає банк-партнер за результатом розгляду. Наведені суми орієнтовні й не є публічною офертою.
+      Сервіс «Купуй Авто» допомагає з підбором машин та попереднім погодженням. Остаточні умови та розмір платежу встановлює банк-партнер. Усі розрахунки на сайті є орієнтовними та не є публічною офертою.
     </div>
   </div>
 </section>
@@ -368,11 +393,11 @@
       <div class="formwrap">
         <div class="inner">
           <span class="eyebrow" style="color:var(--red-600)">Без першого внеску · 20 секунд</span>
-          <h3 style="font-family:var(--font-display); font-size:var(--t-h3); color:#fff; margin:.6rem 0 .5rem;">Дізнатись платіж по цьому авто</h3>
-          <p style="color:var(--gray-300); margin:0 0 1.25rem;">Залиште ім'я та телефон — передзвонимо за 15 хвилин і покажемо щомісячний платіж саме по цьому авто.</p>
+          <h3 style="font-family:var(--font-display); font-size:var(--t-h3); color:#fff; margin:.6rem 0 .5rem;">Ваш платіж за це авто</h3>
+          <p style="color:var(--gray-300); margin:0 0 1.25rem;">Лише два поля для заповнення. За 15 хвилин ми зв'яжемося з вами та розрахуємо комфортне щомісячне навантаження.</p>
           <div class="stack">
-            <input class="field" placeholder="Ваше ім'я">
-            <input class="field" placeholder="Телефон" inputmode="tel">
+            <input class="field" id="formName" placeholder="Ваше ім'я" aria-label="Ваше ім'я">
+            <input class="field" id="formPhone" placeholder="Телефон" inputmode="tel" type="tel" aria-label="Телефон">
             <button class="btn btn-primary btn-lg btn-block">Дізнатись мій платіж →</button>
           </div>
           <div class="flex gap-2 items-center" style="justify-content:center; margin-top:.9rem;">
@@ -388,8 +413,8 @@
       <div>
         <h3 style="font-family:var(--font-display); font-size:var(--t-h3); margin-bottom:1rem;">Як вам зручно почати</h3>
         <div class="stack">
-          <a href="#form" class="card tcard" style="padding:1.1rem; display:block;"><b><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="var(--red-600)"/></svg> Швидкий старт</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">Ім'я + телефон. Передзвонимо за 15 хв.</p></a>
-          <a href="#form" class="card tcard" style="padding:1.1rem; display:block;"><b><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8 8 0 0 1-11.3 7.3L4 21l1.7-5.2A8 8 0 1 1 20.5 12z"/></svg> Консультація / підбір</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">«Маю суму Х на місяць — підберіть авто».</p></a>
+          <a href="#form" class="card tcard js-start" data-start="quick" style="padding:1.1rem; display:block;"><b><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="var(--red-600)"/></svg> Швидкий старт</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">Ім'я + телефон. Передзвонимо за 15 хв.</p></a>
+          <a href="#form" class="card tcard js-start" data-start="consult" style="padding:1.1rem; display:block;"><b><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8 8 0 0 1-11.3 7.3L4 21l1.7-5.2A8 8 0 1 1 20.5 12z"/></svg> Консультація / підбір</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">«Маю суму Х на місяць — підберіть авто».</p></a>
           <a href="tel:+380000000000" class="card tcard" style="padding:1.1rem; display:block;"><b><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg> Подзвонити зараз</b><p class="muted" style="font-size:var(--t-sm);margin-top:.2rem;">Відповімо на всі питання щодо цього авто.</p></a>
         </div>
       </div>
@@ -405,28 +430,28 @@
     <span class="eyebrow">Питання та відповіді</span>
     <h2 class="sh chev-rule" style="margin-bottom:1.5rem;">Коротко про головне</h2>
     <details style="background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);padding:1rem 1.15rem;margin-bottom:.7rem;">
-      <summary style="font-weight:700;cursor:pointer;">Чому ви не показуєте ціну авто?</summary>
-      <p class="muted" style="margin-top:.6rem;">Ми показуємо те, що справді важливо щомісяця, — ваш платіж і середнє обслуговування. Так одразу зрозуміло, чи комфортна машина для вашого бюджету, без зайвих розрахунків.</p>
+      <summary style="font-weight:700;cursor:pointer;">Наскільки надійний двигун 2.0 TFSI на цьому Audi A5?</summary>
+      <p class="muted" style="margin-top:.6rem;">2.0 TFSI — перевірений турбомотор на 211 к.с. У ранніх версіях цього сімейства інколи траплялися питання з натягувачем ланцюга ГРМ та підвищеною витратою оливи. Саме тому ми пройшли цей екземпляр за чек-листом зі 142 пунктів: перевірили роботу ланцюга на холодному старті, рівень і стан оливи, компресію та відсутність помилок по ГРМ. Двигун — у справному технічному стані.</p>
     </details>
     <details style="background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);padding:1rem 1.15rem;margin-bottom:.7rem;">
-      <summary style="font-weight:700;cursor:pointer;">Чи реально взяти авто без першого внеску?</summary>
-      <p class="muted" style="margin-top:.6rem;">Так. Стартувати можна без першого внеску — ви залишаєте контакти, а ми готуємо для вас попереднє погодження й підбираємо зручний варіант.</p>
+      <summary style="font-weight:700;cursor:pointer;">Коробка S tronic і повний привід quattro — це дорого в обслуговуванні?</summary>
+      <p class="muted" style="margin-top:.6rem;">Робот S tronic і повний привід quattro потребують лише планової заміни оливи у визначені інтервали — нічого надскладного. Ми перевірили плавність перемикань і роботу муфти повного приводу під навантаженням. Реальні середні витрати на сервіс ви бачите у блоці «Скільки коштує утримання» вище — без сюрпризів.</p>
     </details>
     <details style="background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);padding:1rem 1.15rem;margin-bottom:.7rem;">
-      <summary style="font-weight:700;cursor:pointer;">Що буде після того, як я залишу контакти?</summary>
-      <p class="muted" style="margin-top:.6rem;">Ми підготуємо попереднє погодження й підберемо авто під ваш бюджет. Далі з вами зв'яжеться представник банку та оформить усе до готового договору.</p>
+      <summary style="font-weight:700;cursor:pointer;">Пробіг 202 000 км — це не забагато?</summary>
+      <p class="muted" style="margin-top:.6rem;">Для бензинового Audi з належним доглядом це робочий пробіг — багато таких авто впевнено долають понад 300 000 км. Важливіший не сам пробіг, а історія обслуговування та стан вузлів. Ми підтвердили реальність пробігу й перевірили ключові вузли — двигун, коробку, підвіску та гальма — перед продажем.</p>
     </details>
     <details style="background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);padding:1rem 1.15rem;margin-bottom:.7rem;">
-      <summary style="font-weight:700;cursor:pointer;">Скільки чекати на авто?</summary>
-      <p class="muted" style="margin-top:.6rem;">Попереднє погодження ви отримуєте всього за 15 хвилин. Терміни оформлення й передачі залежать від обраного авто — ми підкажемо їх одразу під час спілкування.</p>
+      <summary style="font-weight:700;cursor:pointer;">Авто пригнане зі США — що з розмитненням і документами?</summary>
+      <p class="muted" style="margin-top:.6rem;">Так, авто привезене зі США, і розмитнення вже включено та сплачено — жодних додаткових витрат на оформлення з вашого боку. VIN пробитий за історією: це не «конструктор» після тотальної аварії, авто не в заставі та не в розшуку. Повний звіт історії можна завантажити у блоці «VIN, історія та технічний стан» вище.</p>
     </details>
     <details style="background:#fff;border:1px solid var(--hairline);border-radius:var(--r-md);padding:1rem 1.15rem;">
-      <summary style="font-weight:700;cursor:pointer;">Чи зобов'язує мене залишити контакти?</summary>
-      <p class="muted" style="margin-top:.6rem;">Ні. Залишити контакти — безкоштовно й ні до чого не зобов'язує. Ви спокійно ознайомитеся з умовами та вирішите самі.</p>
+      <summary style="font-weight:700;cursor:pointer;">Скільки реально коштуватиме утримання на місяць?</summary>
+      <p class="muted" style="margin-top:.6rem;">Орієнтовно ≈ 2 100 грн/міс на сервіс, шини, страхування та розхідники, плюс пальне ≈ 6 900 грн/міс за пробігу близько 1 000 км (А95, ~9 л/100 км). Усі цифри — у прозорому блоці «Скільки коштує утримання» вище, щоб ви бачили реальну картину ще до покупки.</p>
     </details>
     <div class="center" style="margin-top:1.5rem;">
       <span class="muted" style="display:block; margin-bottom:.8rem;">Залишились питання? Зателефонуйте — відповімо й одразу порахуємо платіж.</span>
-      <a href="tel:+380000000000" class="btn btn-dark"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg> Подзвонити</a>
+      <a href="tel:+380000000000" class="btn btn-primary"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg> Подзвонити</a>
     </div>
   </div>
 </section>
@@ -440,7 +465,7 @@
       <div class="stack" style="margin-top:1rem; color:var(--text);">
         <p>Audi A5 2012 у топовій комплектації Prestige — стильне купе з турбодвигуном 2.0 TFSI та фірмовим повним приводом quattro. Технічно у доброму стані, з уже сплаченим розмитненням.</p>
         <p>Багате оснащення: панорамний дах, LED-оптика, шкіряний салон з підігрівом, 3-зонний клімат-контроль, адаптивний круїз, асистент руху в смузі, безключовий доступ, підрульові перемикачі, камера заднього огляду, преміум-аудіо.</p>
-        <p>Одне з авто, доступних просто зараз. Добірка оновлюється щотижня — якщо вагаєтесь, краще лишити контакти сьогодні.</p>
+        <p>Ця машина доступна для покупки просто зараз. Наш каталог оновлюється щотижня, тому встигніть отримати розрахунок саме на цю модель — залишайте контакти.</p>
       </div>
     </div>
     <div>
@@ -462,8 +487,8 @@
 <!-- ===== ФІНАЛЬНИЙ CTA-БАНД ===== -->
 <section class="section cta-band">
   <div class="wrap">
-    <h2 style="margin-bottom:.6rem;">Готові сісти за кермо цього авто?</h2>
-    <p style="max-width:52ch; margin:0 auto 1.5rem; opacity:.92;">Без першого внеску. Залиште контакти — за 15 хвилин підготуємо попереднє погодження саме по цьому авто.</p>
+    <h2 style="margin-bottom:.6rem;">Залишився один крок до виїзду</h2>
+    <p style="max-width:52ch; margin:0 auto 1.5rem; opacity:.92;">0 ₴ першого внеску. Залиште заявку, і ми за 15 хвилин повідомимо ваш орієнтовний щомісячний платіж для цієї моделі.</p>
     <div class="flex gap-3" style="justify-content:center; flex-wrap:wrap;">
       <a href="#form" class="btn btn-lg" style="background:#fff; color:var(--red-700);">Дізнатись платіж</a>
       <a href="tel:+380000000000" class="btn btn-lg btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.5);"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h3.2l1.6 4-2.3 1.6a12 12 0 0 0 4.8 4.8l1.6-2.3 4 1.6v3.2a1.8 1.8 0 0 1-1.9 1.8A15.5 15.5 0 0 1 3.7 5.9 1.8 1.8 0 0 1 5.5 4z"/></svg> Подзвонити</a>
@@ -495,7 +520,7 @@
       </div>
     </div>
     <div class="chev-strip" style="margin:2rem 0 1.5rem; opacity:.5;"></div>
-    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Допомагаємо підібрати авто та оформити попереднє погодження. Остаточні умови визначає банк-партнер. Не є публічною офертою.</p>
+    <p style="font-size:var(--t-xs);">© 2026 Купуй Авто. Сервіс підбору авто та сприяння у фінансуванні. Усі розрахунки є орієнтовними, остаточні умови ухвалює банк-партнер. Не є публічною офертою.</p>
   </div>
 </footer>
 
@@ -544,7 +569,7 @@
     countEl.textContent="ракурс "+(cur+1)+" / "+frames.length;
   }
   function stopAuto(){ if(autoT){ clearInterval(autoT); autoT=null; autoBtn.textContent="▶ Авто-оберт"; } }
-  function toggleAuto(){ if(autoT){ stopAuto(); } else { autoT=setInterval(function(){ show(cur+1); },900); autoBtn.textContent="⏸ Стоп"; } }
+  function toggleAuto(){ if(autoT){ stopAuto(); } else { autoT=setInterval(function(){ show(cur+1); },130); autoBtn.textContent="⏸ Стоп"; } }
   function open(){ build(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); show(cur); }
   function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); stopAuto(); }
 
@@ -561,7 +586,7 @@
     else if(e.key==='ArrowRight'){ stopAuto(); show(cur+1); }
   });
   // drag-to-spin
-  var dragging=false, startX=0, startIdx=0, STEP=38;
+  var dragging=false, startX=0, startIdx=0, STEP=22;
   function down(x){ dragging=true; startX=x; startIdx=cur; stopAuto(); }
   function move(x){ if(!dragging) return; show(startIdx+Math.round((startX-x)/STEP)); }
   function up(){ dragging=false; }
@@ -606,6 +631,21 @@
     });
   }
 
+  // "Як вам зручно почати" — the quick-start options must visibly do something:
+  // smooth-scroll to the lead form and focus it (they used to be #form anchors that did nothing,
+  // because they already sit inside the #form section).
+  document.querySelectorAll('.js-start').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var form=document.getElementById('form');
+      if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
+      var name=document.getElementById('formName');
+      var phone=document.getElementById('formPhone');
+      if(a.getAttribute('data-start')==='consult' && phone){ phone.placeholder='Телефон + бажаний платіж/міс'; }
+      if(name){ setTimeout(function(){ try{ name.focus({preventScroll:true}); }catch(_){ name.focus(); } }, 420); }
+    });
+  });
+
   // popup
   function openPop(p){ if(p) p.classList.add('open'); }
   function closePop(p){ if(p) p.classList.remove('open'); }
@@ -630,6 +670,8 @@
 <script>
 (function(){var t=document.querySelector('.nav-toggle'),n=document.getElementById('navLinks');if(!t||!n)return;t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});})();
 </script>
+
+<script src="assets/preloader.js" defer></script>
 
 </body>
 </html>
