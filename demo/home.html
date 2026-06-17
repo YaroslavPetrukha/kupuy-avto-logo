@@ -6,6 +6,8 @@
 <title>Купуй Авто — без першого внеску, обирай авто</title>
 <link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/tokens.css">
+<script>try{if(sessionStorage.getItem('kaSplash'))document.documentElement.className+=' kap-seen';}catch(e){}</script>
+<link rel="stylesheet" href="assets/preloader.css">
 <style>
   .topbar { position:sticky; top:0; z-index:40; background:rgba(27,9,12,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
   .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
@@ -85,6 +87,28 @@
 </head>
 <body>
 
+<!-- ЛОГО-ПРЕЛОАДЕР «Прибуття по дорозі» · assets/preloader.css + assets/preloader.js -->
+<div id="kaPreloader" role="status" aria-label="Купуй Авто — завантаження">
+  <div class="kap-stage">
+    <svg viewBox="0 0 553.99 170.57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon class="kap-tri" fill="#e32737" points="278.11 0 229.78 54.48 326.43 54.48"/>
+      <g class="kap-letters" fill="#fff">
+        <path d="M22.44,128.3h-7.04v20.95H0v-54.73h15.4v21.27h7.43l13.06-21.27h16.26l-17.12,26.43,17.28,28.3h-17.44l-12.43-20.95Z"/>
+        <path d="M110.79,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M167.31,94.53v54.73h-15.32v-42.46h-20.8v42.46h-15.25v-54.73h51.37Z"/>
+        <path d="M231.26,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M236.42,94.53h15.25v32.13l22.6-32.13h14.54v54.73h-15.25v-32.06l-22.52,32.06h-14.62v-54.73ZM246.5,78.5h10.4c.08,3.6,1.72,5.39,5.63,5.39s5.71-1.8,5.79-5.39h10.4c0,8.21-4.85,12.74-16.18,12.74s-16.03-4.53-16.03-12.74Z"/>
+        <path d="M361.51,138.62h-23.14l-4.3,10.63h-15.79l24.16-54.73h15.25l24.24,54.73h-16.11l-4.3-10.63ZM356.97,127.21l-7.04-17.51-7.04,17.51h14.07Z"/>
+        <path d="M438.2,133.62c0,9.62-7.66,15.64-21.74,15.64h-28.07v-54.73h26.58c13.06,0,20.72,5.16,20.72,14.23,0,5.4-2.74,9.54-7.43,11.88,6.33,2.03,9.93,6.41,9.93,12.98ZM403.64,116.42h9.85c4.38,0,6.57-1.8,6.57-5.39s-2.19-5.39-6.57-5.39h-9.85v10.79ZM422.56,132.45c0-3.75-2.27-5.55-6.72-5.55h-12.2v11.26h12.2c4.46,0,6.72-1.96,6.72-5.71Z"/>
+        <path d="M490.11,106.8h-16.73v42.46h-15.25v-42.46h-16.81v-12.28h48.79v12.28Z"/>
+        <path d="M493.16,121.89c0-16.42,12.9-28.46,30.41-28.46s30.41,12.04,30.41,28.46-12.9,28.46-30.41,28.46-30.41-12.04-30.41-28.46ZM538.35,121.89c0-9.46-6.49-15.64-14.78-15.64s-14.78,6.18-14.78,15.64,6.49,15.64,14.78,15.64,14.78-6.18,14.78-15.64Z"/>
+      </g>
+      <rect class="kap-road" fill="#e32737" y="166.57" width="553.98" height="4"/>
+    </svg>
+  </div>
+</div>
+
+
 <div class="topbar">
   <div class="wrap">
     <a class="wm" href="index.html" aria-label="Купуй Авто — на головну"><img class="brand-logo" src="assets/brand/logo.svg" alt="Купуй Авто"></a>
@@ -129,9 +153,9 @@
 <div class="statbar">
   <div class="wrap">
     <div class="stat"><b>0 ₴</b><span>перший внесок</span></div>
-    <div class="stat"><b>15 хв</b><span>попереднє погодження</span></div>
-    <div class="stat"><b>платіж/міс</b><span>видно одразу</span></div>
-    <div class="stat" style="border-right:0;"><b>під ключ</b><span>авто з договором</span></div>
+    <div class="stat"><b>15 хв</b><span>швидке рішення</span></div>
+    <div class="stat"><b>Без сюрпризів</b><span>платіж видно одразу</span></div>
+    <div class="stat" style="border-right:0;"><b>Під ключ</b><span>сів і поїхав</span></div>
   </div>
 </div>
 
@@ -195,7 +219,6 @@
         </div>
       </a>
     </div></div>
-    <p class="mono center" style="font-size:var(--t-xs); color:var(--text-muted); margin-top:1.25rem;">Платіж щомісяця — орієнтовний, до попереднього погодження. Гортайте або наведіть, щоб зупинити.</p>
   </div>
 </section>
 
@@ -206,13 +229,13 @@
       <div class="bg-pattern soft" aria-hidden="true"></div>
       <div class="in">
         <span class="chip chip-red" style="margin-bottom:1rem;">✓ Схвалення</span>
-        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Підберемо рішення саме під вашу ситуацію</h2>
-        <p style="color:var(--gray-300); margin-bottom:1.25rem;">Працюєте на себе, як ФОП чи на фрілансі? Це не перешкода. Ми підберемо зручний варіант під вашу ситуацію — <b style="color:#fff;">без першого внеску</b>. Залиште контакти: це безкоштовно й ні до чого не зобов'язує.</p>
+        <h2 style="font-size:var(--t-h2); color:#fff; margin-bottom:.75rem;">Підберемо умови саме для вас</h2>
+        <p style="color:var(--gray-300); margin-bottom:1.25rem;">Працюєте як ФОП чи на фрілансі? Ми знайдемо зручний варіант фінансування <b style="color:#fff;">без першого внеску</b>. Залиште контакти — за 15 хвилин покажемо, що можемо запропонувати.</p>
         <div class="flex gap-2" style="flex-wrap:wrap; margin-bottom:1.5rem;">
-          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Без першого внеску</span>
-          <span class="chip chip-teal">✓ ФОП і власна справа</span>
-          <span class="chip chip-teal">✓ Рішення під вашу ситуацію</span>
-          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Ні до чого не зобов'язує</span>
+          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 0 ₴ першого внеску</span>
+          <span class="chip chip-teal">✓ Для бізнесу та ІТ</span>
+          <span class="chip chip-teal">✓ Високий шанс схвалення</span>
+          <span class="chip chip-teal"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16 9"/></svg> Безкоштовний розрахунок</span>
         </div>
         <a href="#catalog" class="btn btn-primary btn-lg">Підібрати авто →</a>
       </div>
@@ -224,10 +247,10 @@
 <section class="section" style="background:var(--ink-800); color:#fff;">
   <div class="wrap">
     <span class="eyebrow">Чому ми</span>
-    <h2 style="font-size:var(--t-h1); color:#fff; margin:.75rem 0 2rem;">Прозоро. Швидко. Для своїх.</h2>
+    <h2 style="font-size:var(--t-h1); color:#fff; margin:.75rem 0 2rem;">Чесно. Швидко. Зручно.</h2>
     <div class="grid why">
-      <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Усі суми наперед</h3><p class="muted" style="color:var(--gray-400)">Ви бачите щомісячний платіж і середнє обслуговування — без прихованих сюрпризів.</p></div>
-      <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Без першого внеску</h3><p class="muted" style="color:var(--gray-400)">Стартувати можна без першого внеску — обирай авто вже сьогодні.</p></div>
+      <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 9.5v5M18 9.5v5"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Усі витрати як на долоні</h3><p class="muted" style="color:var(--gray-400)">Ми одразу показуємо, скільки коштуватиме платіж та утримання авто, щоб ви уникнули будь-яких прихованих переплат.</p></div>
+      <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">Без першого внеску</h3><p class="muted" style="color:var(--gray-400)">Забирайте авто вже сьогодні, не чекаючи, поки набирається сума.</p></div>
       <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4.2l2.4 2"/><path d="M9.2 2.5h5.6"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">За 15 хвилин</h3><p class="muted" style="color:var(--gray-400)">Попереднє погодження — швидко й без зайвої бюрократії.</p></div>
       <div><div class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5L16 16"/></svg></div><h3 style="font-family:var(--font-body);font-weight:800;margin:.6rem 0 .3rem;">VIN та історія</h3><p class="muted" style="color:var(--gray-400)">Перевірена історія кожного авто — відкрито й чесно.</p></div>
     </div>
@@ -240,9 +263,9 @@
     <span class="eyebrow">Як це працює</span>
     <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 2rem;">Від заявки до ключів — 3 кроки</h2>
     <div class="grid steps">
-      <div class="card step"><div class="n">01</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Залиште контакти</h3><p class="muted">Ім'я, телефон і кілька даних. За 15 хвилин готуємо попереднє погодження — без першого внеску.</p></div>
-      <div class="card step"><div class="n">02</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Щойно приходить «так» — представник банку-партнера сам зв'язується та пояснює подальший план дій.</p></div>
-      <div class="card step"><div class="n">03</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Підписали — і за кермом</h3><p class="muted">Підписуєте в банку — а вас уже чекає авто з готовим договором. Зазвичай забираєте <b>того ж дня</b>.</p></div>
+      <div class="card step"><div class="n">01</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Залиште контакти</h3><p class="muted">Лише ім'я та телефон. За 15 хвилин маєте рішення щодо фінансування без першого внеску. Жодних стосів паперів.</p></div>
+      <div class="card step"><div class="n">02</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Погодження банку</h3><p class="muted">Щойно отримуємо «так» — банк пояснює деталі угоди. А ми залишаємось поруч на кожному етапі, щоб супроводжувати вас аж до видачі ключів.</p></div>
+      <div class="card step"><div class="n">03</div><h3 style="margin:1rem 0 .4rem; font-family:var(--font-body); font-weight:800;">Підписали — і за кермом</h3><p class="muted">Ви владнали формальності, а машина вже чекає. Ми заздалегідь усе підготували, щоб ви забрали авто <b>день у день</b>.</p></div>
     </div>
   </div>
 </section>
@@ -277,11 +300,11 @@
   <div class="wrap faq">
     <span class="eyebrow">Питання та відповіді</span>
     <h2 class="chev-rule" style="font-size:var(--t-h1); margin:.75rem 0 1.5rem;">Коротко про головне</h2>
-    <details><summary>Чому ви не показуєте ціну авто?</summary><p class="muted" style="margin-top:.6rem;">Ми показуємо те, що справді важливо щомісяця, — ваш платіж і середнє обслуговування. Так одразу зрозуміло, чи комфортна машина для вашого бюджету, без зайвих розрахунків.</p></details>
-    <details><summary>Чи реально взяти авто без першого внеску?</summary><p class="muted" style="margin-top:.6rem;">Так. Стартувати можна без першого внеску — ви залишаєте контакти, а ми готуємо для вас попереднє погодження й підбираємо зручний варіант.</p></details>
-    <details><summary>Що буде після того, як я залишу контакти?</summary><p class="muted" style="margin-top:.6rem;">Ми підготуємо попереднє погодження й підберемо авто під ваш бюджет. Далі з вами зв'яжеться представник банку та оформить усе до готового договору.</p></details>
-    <details><summary>Скільки чекати на авто?</summary><p class="muted" style="margin-top:.6rem;">Попереднє погодження ви отримуєте всього за 15 хвилин. Терміни оформлення й передачі залежать від обраного авто — ми підкажемо їх одразу під час спілкування.</p></details>
-    <details><summary>Чи зобов'язує мене залишити контакти?</summary><p class="muted" style="margin-top:.6rem;">Ні. Залишити контакти — безкоштовно й ні до чого не зобов'язує. Ви спокійно ознайомитеся з умовами та вирішите самі.</p></details>
+    <details><summary>Чому ви не показуєте ціну авто?</summary><p class="muted" style="margin-top:.6rem;">Ми показуємо те, що справді важливо для вас щомісяця: фіксований платіж та середні витрати на ТО. Так ви одразу бачите, чи комфортна ця машина для вашого гаманця, без складних калькуляторів.</p></details>
+    <details><summary>Чи реально взяти авто без першого внеску?</summary><p class="muted" style="margin-top:.6rem;">Абсолютно. Більшість наших клієнтів стартують без авансу. Ви просто залишаєте заявку, а ми знаходимо оптимальне фінансування та підбираємо машину.</p></details>
+    <details><summary>Що буде після того, як я залишу контакти?</summary><p class="muted" style="margin-top:.6rem;">Ми узгоджуємо фінансування та пропонуємо варіанти авто. Далі банк готує документи, а ваш персональний менеджер від нас залишається на зв'язку та супроводжує вас на кожному кроці аж до видачі ключів.</p></details>
+    <details><summary>Скільки чекати на авто?</summary><p class="muted" style="margin-top:.6rem;">Рішення щодо фінансування приймається за 15 хвилин. Сама видача залежить від обраної моделі, але зазвичай усе відбувається настільки швидко, що ви їдете додому на новому авто в день підписання договору.</p></details>
+    <details><summary>Чи зобов'язує мене залишення контактів?</summary><p class="muted" style="margin-top:.6rem;">Жодних зобов'язань. Заявка потрібна лише для того, щоб ми могли скласти для вас конкретну пропозицію. Ви спокійно вивчаєте умови — і тільки потім приймаєте рішення.</p></details>
   </div>
 </section>
 
@@ -381,6 +404,8 @@
 <script>
 (function(){var t=document.querySelector('.nav-toggle'),n=document.getElementById('navLinks');if(!t||!n)return;t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});})();
 </script>
+
+<script src="assets/preloader.js" defer></script>
 
 </body>
 </html>

@@ -6,6 +6,8 @@
 <title>Контакти — КУПУЙ АВТО</title>
 <link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/tokens.css">
+<script>try{if(sessionStorage.getItem('kaSplash'))document.documentElement.className+=' kap-seen';}catch(e){}</script>
+<link rel="stylesheet" href="assets/preloader.css">
 <style>
   .topbar { position:sticky; top:0; z-index:40; background:rgba(27,9,12,.92); backdrop-filter:blur(10px); color:#fff; border-bottom:1px solid var(--ink-600); }
   .topbar .wrap { display:flex; align-items:center; justify-content:space-between; padding-block:.85rem; }
@@ -76,6 +78,28 @@
 </style>
 </head>
 <body>
+
+<!-- ЛОГО-ПРЕЛОАДЕР «Прибуття по дорозі» · assets/preloader.css + assets/preloader.js -->
+<div id="kaPreloader" role="status" aria-label="Купуй Авто — завантаження">
+  <div class="kap-stage">
+    <svg viewBox="0 0 553.99 170.57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon class="kap-tri" fill="#e32737" points="278.11 0 229.78 54.48 326.43 54.48"/>
+      <g class="kap-letters" fill="#fff">
+        <path d="M22.44,128.3h-7.04v20.95H0v-54.73h15.4v21.27h7.43l13.06-21.27h16.26l-17.12,26.43,17.28,28.3h-17.44l-12.43-20.95Z"/>
+        <path d="M110.79,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M167.31,94.53v54.73h-15.32v-42.46h-20.8v42.46h-15.25v-54.73h51.37Z"/>
+        <path d="M231.26,94.53l-22.67,42.3c-4.85,9.15-11.96,13.84-20.17,13.84-3.13,0-6.33-.7-9.7-2.03l3.67-11.42c2.11.63,3.83.94,5.47.94,3.05,0,5.24-1.25,7.27-4.22l-21.27-39.41h16.34l12.75,26.43,13.21-26.43h15.09Z"/>
+        <path d="M236.42,94.53h15.25v32.13l22.6-32.13h14.54v54.73h-15.25v-32.06l-22.52,32.06h-14.62v-54.73ZM246.5,78.5h10.4c.08,3.6,1.72,5.39,5.63,5.39s5.71-1.8,5.79-5.39h10.4c0,8.21-4.85,12.74-16.18,12.74s-16.03-4.53-16.03-12.74Z"/>
+        <path d="M361.51,138.62h-23.14l-4.3,10.63h-15.79l24.16-54.73h15.25l24.24,54.73h-16.11l-4.3-10.63ZM356.97,127.21l-7.04-17.51-7.04,17.51h14.07Z"/>
+        <path d="M438.2,133.62c0,9.62-7.66,15.64-21.74,15.64h-28.07v-54.73h26.58c13.06,0,20.72,5.16,20.72,14.23,0,5.4-2.74,9.54-7.43,11.88,6.33,2.03,9.93,6.41,9.93,12.98ZM403.64,116.42h9.85c4.38,0,6.57-1.8,6.57-5.39s-2.19-5.39-6.57-5.39h-9.85v10.79ZM422.56,132.45c0-3.75-2.27-5.55-6.72-5.55h-12.2v11.26h12.2c4.46,0,6.72-1.96,6.72-5.71Z"/>
+        <path d="M490.11,106.8h-16.73v42.46h-15.25v-42.46h-16.81v-12.28h48.79v12.28Z"/>
+        <path d="M493.16,121.89c0-16.42,12.9-28.46,30.41-28.46s30.41,12.04,30.41,28.46-12.9,28.46-30.41,28.46-30.41-12.04-30.41-28.46ZM538.35,121.89c0-9.46-6.49-15.64-14.78-15.64s-14.78,6.18-14.78,15.64,6.49,15.64,14.78,15.64,14.78-6.18,14.78-15.64Z"/>
+      </g>
+      <rect class="kap-road" fill="#e32737" y="166.57" width="553.98" height="4"/>
+    </svg>
+  </div>
+</div>
+
 
 <div class="topbar">
   <div class="wrap">
@@ -243,6 +267,8 @@
 <script>
 (function(){var t=document.querySelector('.nav-toggle'),n=document.getElementById('navLinks');if(!t||!n)return;t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});})();
 </script>
+
+<script src="assets/preloader.js" defer></script>
 
 </body>
 </html>
