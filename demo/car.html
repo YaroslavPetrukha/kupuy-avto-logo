@@ -418,6 +418,7 @@
 
   /* specstrip = statbar, 5 cols */
   .specbar .grid{ grid-template-columns:repeat(5,minmax(0,1fr)); }
+  .specbar .stat b{ font-size:clamp(1.25rem,1.8vw,1.65rem); white-space:nowrap; }
   @media (max-width:760px){ .specbar .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } .specbar .stat:nth-child(2){ border-right:0; } }
 
   .sec-lead{ color:var(--muted); font-size:var(--t-lead); max-width:64ch; margin-bottom:clamp(1.5rem,3vw,2.25rem); }
@@ -729,7 +730,7 @@
   <div class="wide">
     <div class="grid">
       <div class="stat"><span>Двигун</span><b>2.0 TFSI</b></div>
-      <div class="stat"><span>Пробіг</span><b class="num">202 000 км</b></div>
+      <div class="stat"><span>Пробіг</span><b class="num">202 тис. км</b></div>
       <div class="stat"><span>КПП</span><b>Автомат</b></div>
       <div class="stat"><span>Привід</span><b>quattro</b></div>
       <div class="stat" style="border-right:0;"><span>Рік</span><b class="num">2012</b></div>
