@@ -377,12 +377,13 @@
   .car-head{ margin-bottom:1rem; }
   .car-sub{ color:var(--muted); font-size:var(--t-sm); margin-top:.5rem; }
   .car-chips{ margin:0 0 1.6rem; }
-  .grid-h{ display:grid; grid-template-columns:1.55fr 1fr; gap:clamp(1.5rem,3.5vw,3rem); align-items:start; }
-  @media (max-width:900px){ .grid-h{ grid-template-columns:1fr; } }
+  .grid-h{ display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:clamp(1.5rem,3.5vw,3rem); align-items:start; }
+  @media (max-width:900px){ .grid-h{ grid-template-columns:minmax(0,1fr); } }
+  .car-gallery,.buybox{ min-width:0; }
   .car-gallery-note{ color:var(--muted-2); font-size:var(--t-xs); margin-top:.8rem; letter-spacing:.04em; }
 
   /* gallery — film frame */
-  .gallery{ display:grid; grid-template-columns:3fr 1fr; gap:.6rem; }
+  .gallery{ display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1fr); gap:.6rem; }
   .ph{ position:relative; overflow:hidden; background:#1a1416; border:1px solid var(--line); }
   .ph img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; background:#1a1416; }
   .ph-main{ aspect-ratio:4/3; border:1px solid var(--line-strong);
