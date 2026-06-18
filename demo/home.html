@@ -149,10 +149,10 @@
   .chip-d.red{ background:rgba(227,38,54,.12); color:#ff8a93; border-color:rgba(227,38,54,.3); }
 
   .hero-media{ position:relative; }
-  .hero-figure{ position:relative; margin:0 0 0 auto; aspect-ratio:16/11; width:100%; max-width:35rem; overflow:hidden; border:1px solid var(--line-strong);
+  .hero-figure{ position:relative; margin:0 0 0 auto; aspect-ratio:4/3; width:100%; max-width:35rem; overflow:hidden; border:1px solid var(--line-strong);
     clip-path:polygon(calc(var(--cut)*2) 0,100% 0,100% 100%,0 100%,0 calc(var(--cut)*2)); background:#1a1416; }
   /* фото збільшене й прикріплене до низу: верхня смуга з банером дилера гарантовано за кадром, авто видно повністю */
-  .hero-figure img{ position:absolute; inset:auto 0 0 0; width:100%; height:146%; object-fit:cover; object-position:center bottom; filter:saturate(.92) contrast(1.05) brightness(.94); }
+  .hero-figure img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.96) contrast(1.02); }
   .hero-figure::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(12,4,5,.5) 0%,transparent 30%,transparent 62%,rgba(12,4,5,.82) 100%); }
   .hero-figure::before{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.5; background:repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 2px, transparent 2px 4px); }
   .hero-edge{ position:absolute; right:-1px; top:1.5rem; bottom:1.5rem; width:3px; background:var(--red-600); z-index:3; }
@@ -192,10 +192,10 @@
   .carcard::after{ content:""; position:absolute; right:0; top:0; width:3px; height:0; background:var(--red-600); transition:height .4s var(--ease); }
   .carcard:hover{ transform:translateY(-5px); border-color:var(--line-strong); }
   .carcard:hover::after{ height:100%; }
-  .carcard .img{ aspect-ratio:16/11; position:relative; overflow:hidden; background:#1a1416; }
+  .carcard .img{ aspect-ratio:4/3; position:relative; overflow:hidden; background:#1a1416; }
   /* фото збільшене й прикріплене до низу — кропить верхній банер дилера (guardrail: без «авто з США») */
-  .carcard .img img{ position:absolute; inset:auto 0 0 0; width:100%; height:152%; object-fit:cover; object-position:center 72%; filter:saturate(.82) brightness(.84) contrast(1.04); transition:filter .45s var(--ease), transform .55s var(--ease); transform-origin:center bottom; }
-  .carcard:hover .img img{ filter:saturate(1) brightness(1); transform:scale(1.05); }
+  .carcard .img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.92) brightness(.96) contrast(1.02); transition:filter .45s var(--ease); }
+  .carcard:hover .img img{ filter:saturate(1) brightness(1); }
   .carcard .img::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(12,4,5,.55)); }
   .carcard .img .tag{ position:absolute; top:.7rem; left:.7rem; z-index:2; }
   .carcard .n{ position:absolute; top:.6rem; right:.85rem; z-index:2; font-family:var(--font-mono); font-size:.7rem; color:var(--paper-w); letter-spacing:.1em; text-shadow:0 1px 6px #000; }

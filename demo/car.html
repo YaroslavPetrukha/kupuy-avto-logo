@@ -384,8 +384,8 @@
   /* gallery — film frame */
   .gallery{ display:grid; grid-template-columns:3fr 1fr; gap:.6rem; }
   .ph{ position:relative; overflow:hidden; background:#1a1416; border:1px solid var(--line); }
-  .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .ph-main{ aspect-ratio:16/10; border:1px solid var(--line-strong);
+  .ph img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; background:#1a1416; }
+  .ph-main{ aspect-ratio:4/3; border:1px solid var(--line-strong);
     clip-path:polygon(calc(var(--cut)*2) 0,100% 0,100% 100%,0 100%,0 calc(var(--cut)*2)); }
   .ph-main::after{ content:""; position:absolute; right:-1px; top:1.2rem; bottom:1.2rem; width:3px; background:var(--red-600); z-index:3; pointer-events:none; }
   .ph-main img{ transition:opacity .45s var(--ease); }
@@ -520,10 +520,10 @@
   .spin-top .ttl{ font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
   .spin-close{ background:none; border:0; color:var(--paper-w); font-size:1.7rem; line-height:1; cursor:pointer; padding:.2rem .5rem; }
   .spin-close:hover{ color:var(--red-500); }
-  .spin-stage{ position:relative; aspect-ratio:16/10; background:#000; border:1px solid var(--line-strong); overflow:hidden; cursor:ew-resize; user-select:none; touch-action:pan-y;
+  .spin-stage{ position:relative; aspect-ratio:4/3; background:#000; border:1px solid var(--line-strong); overflow:hidden; cursor:ew-resize; user-select:none; touch-action:pan-y;
     clip-path:polygon(calc(var(--cut)*2) 0,100% 0,100% 100%,0 100%,0 calc(var(--cut)*2)); }
   .spin-stage::after{ content:""; position:absolute; right:-1px; top:1.2rem; bottom:1.2rem; width:3px; background:var(--red-600); z-index:3; pointer-events:none; }
-  .spin-stage img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; }
+  .spin-stage img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:0; pointer-events:none; }
   .spin-stage img.on{ opacity:1; }
   .spin-grab{ position:absolute; bottom:.8rem; left:50%; transform:translateX(-50%); z-index:2; background:rgba(12,4,5,.72); border:1px solid var(--line); color:var(--paper-w); font-family:var(--font-mono); font-size:var(--t-xs); padding:.45rem .9rem; }
   .spin-load{ position:absolute; inset:0; display:grid; place-items:center; color:var(--muted); font-family:var(--font-mono); font-size:var(--t-sm); }
