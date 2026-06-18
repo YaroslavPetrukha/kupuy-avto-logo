@@ -419,13 +419,18 @@
   /* specstrip = statbar, 5 cols */
   .specbar .grid{ grid-template-columns:repeat(5,minmax(0,1fr)); }
   .specbar .stat b{ font-size:clamp(1.25rem,1.8vw,1.65rem); white-space:nowrap; }
-  @media (max-width:760px){ .specbar .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } .specbar .stat:nth-child(2){ border-right:0; } }
+  @media (max-width:760px){ .specbar .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } .specbar .stat:nth-child(2){ border-right:0; }
+    .specbar .stat{ padding:1.3rem .9rem; } .specbar .stat::before{ left:.9rem; } .specbar .stat:first-child::before{ left:0; }
+    .specbar .stat b{ font-size:clamp(1rem,3.4vw,1.35rem); white-space:normal; } }
 
   .sec-lead{ color:var(--muted); font-size:var(--t-lead); max-width:64ch; margin-bottom:clamp(1.5rem,3vw,2.25rem); }
 
   /* VIN / history */
-  .hist-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(1.5rem,3.5vw,2.75rem); align-items:start; }
-  @media (max-width:860px){ .hist-grid{ grid-template-columns:1fr; } }
+  .hist-grid{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(1.5rem,3.5vw,2.75rem); align-items:start; }
+  @media (max-width:860px){ .hist-grid{ grid-template-columns:minmax(0,1fr); } }
+  .hist,.hist-cards{ min-width:0; }
+  .hist .val{ overflow-wrap:anywhere; text-align:right; }
+  #history .btn-line{ white-space:normal; height:auto; }
   .hist{ border:1px solid var(--line); background:linear-gradient(180deg,var(--surf-2),var(--surf-3)); overflow:hidden;
     clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,0 100%); }
   .hist .row{ display:flex; justify-content:space-between; gap:1rem; padding:.95rem 1.2rem; border-bottom:1px solid var(--line); align-items:center; }
